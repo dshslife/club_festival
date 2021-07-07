@@ -1,0 +1,239 @@
+
+
+body {
+  padding: 5px 10px;
+}
+
+.search {
+  width: 100%;
+  margin-top: 10px;
+  background-color: rgb(51, 51, 51);
+  height: 35px;
+  border: 0px;
+}
+
+.dis {
+  display: inline-block;
+  margin-top: 10px;
+  position: absolute;
+}
+
+.st {
+  font-family: "se";
+  font-size: 35px;
+}
+
+.my-score {
+  width: 85%;
+  left: 50%;
+  margin-left: -42.5vw;
+  height: 70px;
+  margin-top: 10px;
+  position: absolute;
+  z-index: -100;
+  background-color: rgb(61, 61, 61);
+}
+
+
+.space {
+  width: 20px;
+  height: auto;
+  display: inline-block;
+}
+
+
+.first {
+  width: 80%;
+  padding-left: 20px;
+  padding-top: 15px;
+}
+
+.first > img {
+  float: left;
+}
+
+.first > h5 {
+  display: inline-block;
+  font-family: 'li';
+  font-size: 25px;
+  font-family: 'Nanum Gothic';
+  font-weight: 100;
+}
+
+.rank-t {
+  height: 30px;
+  right: 10px;
+  font-size: 10px;
+}
+
+.sub {
+  font-family: "se";
+  color: rgb(129, 129, 129);
+}
+
+.rank-hr {
+  border: 0px;
+  height: 1px;
+  background-color: rgb(74, 74, 74);
+  width: 80%;
+  position: absolute;
+  left: 50%;
+  margin-left: -40vw;
+}
+
+.top-hr {
+  border: 0px;
+  margin: 15px 0px;
+  height: 1px;
+  background-color: rgb(40, 40, 40);
+}
+
+
+.box {
+  margin: 10px 5px;
+  height: auto;
+  display: inline-block;
+  width: 220px;
+  background-color: rgba(46, 46, 46, 0.8);
+  overflow: hidden;
+}
+
+.box > img {
+  width: auto;
+  height: 150px;
+  position: relative;
+}
+
+.back-box {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: linear-gradient( to right, rgba(0, 0, 0, 0.87), rgba(0, 0, 0, 0));
+  z-index: 1000;
+}
+
+.rcard {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  background-color: rgb(60, 60, 60);
+  margin-top:20px;
+}
+
+ .rcard > h1 {
+   font-size: 20px;
+   left: 0px;
+   line-height: 60px;
+   z-index: 10000;
+   display: inline-block;
+   color: white;
+   position: absolute;
+   font-weight: 100;
+ }
+
+.rcard > img {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  margin-top:-15px;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 80px;
+  background-color: rgb(85, 85, 85);
+  margin-top:20px;
+  overflow: hidden;
+}
+
+.card > img {
+  width: 100%;
+  margin-top: -25%;
+  position: absolute;
+  left: 0px;
+  background: -webkit-linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0));
+}
+
+
+.card > h1 {
+  font-weight: 100;
+  font-size: 20px;
+  left: 0px;
+  line-height: 80px;
+  z-index: 10000;
+  display: inline-block;
+  color: white;
+  position: absolute;
+}
+
+.box > h1 {
+  word-break:keep-all;
+  width: 80%;
+  font-family: 'ses';
+  margin: 15px 10px;
+  color: white;
+  font-size: 20px;
+  white-space:normal;
+}
+
+.state {
+  position: absolute;
+  z-index: 100;
+  margin: 10px;
+  background-color: rgb(33, 194, 47);
+  width: 25px;
+  padding: 3px 5px;
+  font-size: 10px;
+}
+
+.rank {
+  width: 100%;
+  height: auto;
+  margin-top: 50px;
+  background-color: rgb(52, 52, 52);
+}
+
+.arank {
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+  background-color: rgb(52, 52, 52);
+}
+
+.hist {
+  height: 50px;
+line-height: 50px;
+}
+
+
+.list {
+font-weight: 100;
+font-size: 15px;
+display: inline-block;
+position: absolute;
+left: 20px;
+}
+
+.int {
+  font-size: 13px;
+  font-family: 'li';
+  color: rgb(111, 111, 111);
+}
+
+
+.wrap {
+  margin-left: -20px;
+  width:100%;
+  position: relative;
+  white-space:nowrap;
+  overflow-x:scroll;
+}
+
+.wrap::-webkit-scrollbar {
+    display: none;
+}
+
+.te-all {
+  color: rgb(66, 66, 66);
+}

@@ -1,0 +1,84 @@
+html * {
+  font-family: 'Nanum Gothic', sans-serif;
+  padding: 0px;
+  margin: 0px;
+  text-align:center;
+  color: white;
+}
+
+
+.in {
+  display: inline-block;
+}
+
+.bar {
+  width: 100%;
+  position: fixed;
+  left: 0%;
+  top:0%;
+  height: 50px;
+  background-color: rgba(62, 62, 62, 0.7);
+}
+
+
+.logo {
+  position: relative;
+  top:50%;
+  margin-top: -17.5px;
+  background-color: white;
+}
+
+.game {
+  position: relative;
+  margin-top: 10px;
+  width: 90vw;
+  height: 80px;
+  left: 50%;
+  margin-left: -45vw;
+  background-color: rgb(70, 70, 70);
+
+
+}
+
+.be-pic {
+  background: linear-gradient( 45deg, rgb(97, 157, 210),  rgb(105, 54, 236));
+  width: 94vw;
+  height: 190px;
+  display: inline-block;
+  position: relative;
+  margin-top: 15px;
+  overflow: hidden;
+}
+
+
+.g-img {
+  width: 20px;
+  position: absolute;
+  top:50%;
+  right: 20px;
+  margin-top: -10px;
+
+}
+
+.gt {
+  position: absolute;
+  left: 20px;
+  line-height: 80px;
+}
+
+.ben {
+  margin-top: 50px;
+  position: relative;
+  left: 0px;
+  height: 220px;
+  width: 100vw;
+}
+
+
+.be-text {
+    position: relative;
+    margin-left:-110px;
+    font-size:65px;
+    margin-top: 135px;
+    opacity: 0.3;
+}
