@@ -9,8 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>동아리 페스티벌</title>
     <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href='{% static "css/common.css" %}'>
 </head>
 <style>body {
     background-color: #6337FF;
@@ -105,7 +104,7 @@ hr {
 </style>
 <body>
     <div class="background ani" style="height: 75%;"></div>
-    <img src="../imgs/menu.svg" class="t-dot">
+    <img src='{% static "imgs/menu.svg" %}' class="t-dot">
 
     </div>
     <h3 class="b9 f4 title ani" style="color:white; text-align: left; margin-top:20px">동아리 <span class="b2">페스티벌</span></h3>
@@ -120,18 +119,18 @@ hr {
 
         <div id="AddRanking">
             <div class="box shadow blur his-box">
-                <img src="../imgs/gold-medal.svg" width="40px" style="margin-right: 10px; margin-top: -5px;">
+                <img src='{% static "imgs/gold-medal.svg" %}' width="40px" style="margin-right: 10px; margin-top: -5px;">
                 <h5 class="f4 b3">{{rankingList[0]['code']}}</h5>
             </div><div style="height: 10px;"></div>
 
 
             <div class="box shadow blur his-box">
-                <img src="../imgs/medal.svg" width="40px" style="margin-right: 10px; margin-top: -5px;">
+                <img src='{% static "imgs/medal.svg" %}' width="40px" style="margin-right: 10px; margin-top: -5px;">
                 <h5 class="f4 b3">{{rankingList[1]['code']}}</h5>
             </div><div style="height: 10px;"></div>
 
             <div class="box shadow blur his-box">
-                <img src="../imgs/medal3.svg" width="40px" style="margin-right: 10px; margin-top: -5px;">
+                <img src='{% static "imgs/medal3.svg" %}' width="40px" style="margin-right: 10px; margin-top: -5px;">
                 <h5 class="f4 b3">{{rankingList[2]['code']}}</h5>
             </div><div style="height: 10px;"></div>
 
@@ -146,5 +145,5 @@ hr {
         
 </body>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="../js/script.js"></script>
+<script src='{% static "js/script.js" %}'></script>
 </html>
