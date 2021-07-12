@@ -183,73 +183,172 @@
         
     },
     {
-        "club": "",
-        "name": "",
-        "code": "",
-        "category": "",
+        "club": "날샘",
+        "name": "3D 모델링과 3D 프린팅",
+        "code": "A-04",
+        "category": "기술",
         "message": "",
         "busy": 0
         
     },
     {
-        "club": "",
-        "name": "",
-        "code": "",
-        "category": "",
+        "club": "또래상담반",
+        "name": "인디언 포커",
+        "code": "D-09",
+        "category": "유흥",
         "message": "",
         "busy": 0
         
     },
     {
-        "club": "",
-        "name": "",
-        "code": "",
-        "category": "",
+        "club": "라이프니츠",
+        "name": "무한이 늘어나는 삼각형",
+        "code": "A-09",
+        "category": "기술",
         "message": "",
         "busy": 0
         
     },
     {
-        "club": "",
-        "name": "",
-        "code": "",
-        "category": "",
+        "club": "라이프사이언스",
+        "name": "손 안의 화학 정원 만들기",
+        "code": "C-02",
+        "category": "공학",
         "message": "",
         "busy": 0
         
     },
     {
-        "club": "",
-        "name": "",
-        "code": "",
-        "category": "",
+        "club": "문화진로탐방",
+        "name": "윷놀이로 보는 역사",
+        "code": "C-08",
+        "category": "인문",
         "message": "",
         "busy": 0
         
     },
     {
-        "club": "",
-        "name": "",
-        "code": "",
-        "category": "",
+        "club": "법愛정신",
+        "name": "수사관이 되어 데이터베이스를 활용해 사건을 해결하자",
+        "code": "B-04",
+        "category": "기술",
         "message": "",
         "busy": 0
         
     },
     {
-        "club": "",
-        "name": "",
-        "code": "",
-        "category": "",
+        "club": "별사탕",
+        "name": "FIND WONDERS OF THE COSMOS",
+        "code": "B-02",
+        "category": "기술",
         "message": "",
         "busy": 0
         
     },
     {
-        "club": "",
-        "name": "",
-        "code": "",
-        "category": "",
+        "club": "생존의 달인",
+        "name": "경찰, 군인, 소방관 게임을 해보자!",
+        "code": "D-05",
+        "category": "유흥",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "세움",
+        "name": "텐세그리티를 활용한 안전한 구조물 세우기",
+        "code": "C-04",
+        "category": "공학",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "신진사학",
+        "name": "승경도 놀이를 통한 전통 놀이 체험",
+        "code": "C-04",
+        "category": "유흥",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "아티펙스",
+        "name": "나만의 증강현실 만들기 - 미쿠쨩이 내 손 위에?!",
+        "code": "A-03",
+        "category": "기술",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "얼간이 연구소",
+        "name": "Trash Go, AR 이론 및 게임 체험",
+        "code": "B-03",
+        "category": "기술",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "오량독서토론부",
+        "name": "이야기가 있는 책갈피 만들기",
+        "code": "D-02",
+        "category": "인문",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "오량신문편집반",
+        "name": "가짜뉴스 판별 시스템 및 Echo Chamber game.",
+        "code": "A-02",
+        "category": "인문",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "肉體改造",
+        "name": "웨이트 트레이닝의 기초 지식 이해",
+        "code": "D-10",
+        "category": "체육",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "패스파인더",
+        "name": "재무제표를 활용한 기업 가치 평가하기",
+        "code": "A-10",
+        "category": "인문",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "한땀",
+        "name": "재활용 소재를 이용한 나만의 액세서리 만들기",
+        "code": "D-08",
+        "category": "공학",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "Medical Q",
+        "name": "1달러의 기적! 종이접기 현미경 FoldScope!",
+        "code": "D-01",
+        "category": "기술",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "the eco's",
+        "name": "너도 지구 지킬래? 업사이클링하자!",
+        "code": "D-12",
+        "category": "인문",
         "message": "",
         "busy": 0
         
