@@ -187,10 +187,12 @@ function stat(i) {
     }
 }
 
-$.Each (list, function (key, value) {
-    var stat_c = stat(int(value.busy));
+for (var i = 0; i < list; i++) {
+    var stat_c = stat(int(list[i].busy));
     var code = value.code;
     $('#' + code).css('color', stat_c);
-});
+}
+    
+    
 </script>
 </html>
