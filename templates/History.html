@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>동아리 페스티벌</title>
     <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/map1-grid.css">
-    <link rel="stylesheet" href="css/map2-grid.css">
+    <link rel="stylesheet" href='{% static "css/style.css" %}'>
+    <link rel="stylesheet" href='{% static "css/map1-grid.css" %}'>
+    <link rel="stylesheet" href='{% static "css/map2-grid.css" %}'>
 </head>
 <body>
     <div class="background ani" style="height: 75%;"></div>
-    <img src="imgs/menu.svg" class="t-dot">
+    <img src='{% static "imgs/menu.svg" %}' class="t-dot">
     </div>
     <h3 class="b9 f4 title ani" style="color:white; text-align: left; margin-top:20px">동아리 <span class="b2">페스티벌</span></h3>
     <h1 class="booth-text b8 f10">점수 기록</h1>
@@ -100,6 +100,6 @@
         </div>
         
 </body>
-<script  src="js/jquery-latest.min.js"></script>
-<script src="js/script.js"></script>
+<script  src='{% static "js/jquery-latest.min.js" %}'></script>
+<script src='{% static "js/script.js" %}'></script>
 </html>
