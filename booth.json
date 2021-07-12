@@ -1,0 +1,257 @@
+[
+    {
+        "name": "숨은 AI를 찾아라",
+        "code": "B-09",
+        "message": "",
+        "busy": 0,
+        "club": "A.C.T",
+        "category": "기술"
+    },
+    {
+        "name": "휴대용 태양광 충전기 만들기 + 효소는 무슨 일을 할까?",
+        "code": "D-07",
+        "message": "",
+        "busy": 0,
+        "club": "CAPSULE",
+        "category": "기술"
+    },
+    {
+        "name": "코딩을 활용한 사회적 거리두기, 직접 실천해봐",
+        "code": "B-10",
+        "message": "",
+        "busy": 0,
+        "club": "CREATOR",
+        "category": "기술"
+    },
+    {
+        "name": "Throw Ball at the Goal Post.",
+        "code": "A-01",
+        "message": "",
+        "busy": 0,
+        "club": "D.H.B.A",
+        "category": "체육"
+    },
+    {
+        "name": "크로마키 속 다른 공간",
+        "code": "A-08",
+        "message": "",
+        "busy": 0,
+        "club": "DCN",
+        "category": "방송"
+    },
+    {
+        "name": "정책+정치인 월드컵, 신문 만들기",
+        "code": "B-08",
+        "message": "",
+        "busy": 0,
+        "club": "DOYL政源",
+        "category": "인문"
+    },
+    {
+        "club": "FINDER",
+        "name": "GeoGebra를 통한 3차원 함수 그래프 표현",
+        "code": "B-07",
+        "category": "기술",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "Goodwill",
+        "name": "My Good Idea Stage (MGIS 엠지스)",
+        "code": "D-03",
+        "category": "창업",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "Mutation1",
+        "name": "Da Vinci Code, 염색체 구조",
+        "code": "C-06",
+        "category": "과학",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "Mutation2",
+        "name": "과산화수소 분해 작용으로 종이공 대포를 멀리 날려라!",
+        "code": "A-07",
+        "category": "과학",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "ODA",
+        "name": "ODA CASINO",
+        "code": "B-06",
+        "category": "유흥",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "PRIME",
+        "name": "모히또를 통한 분자요리 체험",
+        "code": "C-07",
+        "category": "과학",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "Scivill",
+        "name": "고카트 타고 발명가가 되자",
+        "code": "A-06",
+        "category": "창업",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "SSAM",
+        "name": "‘오늘 하루도 운동했다’ 챌린지",
+        "code": "B-01",
+        "category": "체육",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "The mining",
+        "name": "Automatic Seed Capsules, 자동화 시스템",
+        "code": "A-05",
+        "category": "기술",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "The Wheels기계",
+        "name": "텐세그리티 만들기",
+        "code": "C-05",
+        "category": "기술",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "The Wheels항공",
+        "name": "유체역학, 그리고 추진공학의 기초",
+        "code": "B-05",
+        "category": "과학",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "TRADE MARK",
+        "name": "너도 좋고 나도 좋은 공정무역",
+        "code": "D-04",
+        "category": "인문",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "공간디자인",
+        "name": "교내 벤치 리폼 프로젝트",
+        "code": "D-11",
+        "category": "공학",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "교집합",
+        "name": "Education makes Better Social",
+        "code": "C-03",
+        "category": "인문",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "그곳이알고싶다",
+        "name": "지리는 보드 게임",
+        "code": "D-06",
+        "category": "유흥",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "",
+        "name": "",
+        "code": "",
+        "category": "",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "",
+        "name": "",
+        "code": "",
+        "category": "",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "",
+        "name": "",
+        "code": "",
+        "category": "",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "",
+        "name": "",
+        "code": "",
+        "category": "",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "",
+        "name": "",
+        "code": "",
+        "category": "",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "",
+        "name": "",
+        "code": "",
+        "category": "",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "",
+        "name": "",
+        "code": "",
+        "category": "",
+        "message": "",
+        "busy": 0
+        
+    },
+    {
+        "club": "",
+        "name": "",
+        "code": "",
+        "category": "",
+        "message": "",
+        "busy": 0
+        
+    }
+]
