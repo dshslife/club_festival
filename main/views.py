@@ -72,7 +72,7 @@ def index(request):
 
 @login_required(login_url="/")
 def BoothInfo(request):
-    booth = db['booth'].find({})
+    booth = db['booth'].find({}).sort('busy', 1)
     result_booth = []
     for i in booth:
         i['id'] = str(i['_id'])
