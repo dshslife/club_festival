@@ -67,7 +67,8 @@ def index(request):
             print("INIT NEW USER")
         if not '_id' in request.session:
             request.session['_id'] = str(db['users'].find_one({'code': request.user.email})['_id'])
-        return render(request, "Menu.html")
+        rep = db['users'].find_one({'code': request.user.email})
+        return render(request, "Menu.html", {"user": rep})
 
 @login_required(login_url="/")
 def BoothInfo(request):
@@ -139,19 +140,23 @@ def HistoryView(request):
 
   print(visited_booth)
 
-  return render(request, "History.html", {"score": rep['point'], "visited_booth": visited_booth})
+  return render(request, "History.html", {"score": rep['point'], "visited_booth": objectIdDecoder(visited_booth)})
 
 class CategorySelect(View):
-  
+  @method_decorator(csrf_exempt)
+  def dispatch(self, request, *args, **kwargs):
+    return super(CategorySelect, self).dispatch(request, *args, **kwargs)
+
   def get(self, request):
     return render(request, "Select.html")
 
   def post(self, request):
-    if request.form == None:
+    if request.POST == None:
       return HttpResponse(status=400)
     else:
       try:
-        data = request.form
+        print(request.POST)
+        data = request.POST
         db['users'].update_one({'code': request.user.email}, {'$set': {'category': request.POST['category'] }})
         return HttpResponse(status=200)
       except Exception as e:

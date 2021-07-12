@@ -2,25 +2,25 @@ $('.Box-f').hide();
 $('#Map2').hide();
 
 $('.t-dot').on('click', function() {
-    location.href="/Menu";
+    location.href="/";
 });
 $('#Logout').on('click', function() {
     location.href="/logout";
 });
 $('#Lo-btn').on('click', function() {
-    location.href="/Booth";
+    location.href="/main";
 });
 $('#Back').on('click', function() {
-    location.href="/Booth";
+    location.href="/main";
 });
 $('#Maps').on('click', function() {
-    location.href="/Map";
+    location.href="/map";
 });
 $('#Record').on('click', function() {
-    location.href="/History";
+    location.href="/history";
 });
 $('#Ranking').on('click', function() {
-    location.href="/Ranking";
+    location.href="/ranking";
 });
 
 
