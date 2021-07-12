@@ -1,3 +1,6 @@
+{% load static %}
+{% providers_media_js %}
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -118,57 +121,26 @@ hr {
         <div id="AddRanking">
             <div class="box shadow blur his-box">
                 <img src="../imgs/gold-medal.svg" width="40px" style="margin-right: 10px; margin-top: -5px;">
-                <h5 class="f4 b3">ㅎㅈㅅ</h5>
+                <h5 class="f4 b3">{{rankingList[0]['code']}}</h5>
             </div><div style="height: 10px;"></div>
 
 
             <div class="box shadow blur his-box">
                 <img src="../imgs/medal.svg" width="40px" style="margin-right: 10px; margin-top: -5px;">
-                <h5 class="f4 b3">ㄱㅅㅎ</h5>
+                <h5 class="f4 b3">{{rankingList[1]['code']}}</h5>
             </div><div style="height: 10px;"></div>
 
             <div class="box shadow blur his-box">
                 <img src="../imgs/medal3.svg" width="40px" style="margin-right: 10px; margin-top: -5px;">
-                <h5 class="f4 b3">ㅇㅊㄹ</h5>
+                <h5 class="f4 b3">{{rankingList[2]['code']}}</h5>
             </div><div style="height: 10px;"></div>
 
-
-            <div class="box shadow blur his-box">
-                <h2 class="b9" style="width: 40px; text-align: center;">4.</h2>
-                <h5 class="f4 b3">하세록</h5>
-            </div><div style="height: 10px;"></div>
-
-            <div class="box shadow blur his-box">
-                <h2 class="b9" style="width: 40px; text-align: center;">5.</h2>
-                <h5 class="f4 b3">하세록</h5>
-            </div><div style="height: 10px;"></div>
-
-            <div class="box shadow blur his-box">
-                <h2 class="b9" style="width: 40px; text-align: center;">6.</h2>
-                <h5 class="f4 b3">하세록</h5>
-            </div><div style="height: 10px;"></div>
-
-            <div class="box shadow blur his-box">
-                <h2 class="b9" style="width: 40px; text-align: center;">7.</h2>
-                <h5 class="f4 b3">하세록</h5>
-            </div><div style="height: 10px;"></div>
-
-            <div class="box shadow blur his-box">
-                <h2 class="b9" style="width: 40px; text-align: center;">8.</h2>
-                <h5 class="f4 b3">하세록</h5>
-            </div><div style="height: 10px;"></div>
-
-            <div class="box shadow blur his-box">
-                <h2 class="b9" style="width: 40px; text-align: center;">9.</h2>
-                <h5 class="f4 b3">하세록</h5>
-            </div><div style="height: 10px;"></div>
-
-
-
-            <div class="box shadow blur his-box">
-                <h2 class="b9" style="width: 40px; text-align: center;">10.</h2>
-                <h5 class="f4 b3">하세록</h5>
-            </div><div style="height: 300px;"></div>
+            {% for user in rankingList[3:] %}
+                <div class="box shadow blur his-box">
+                    <h2 class="b9" style="width: 40px; text-align: center;">4.</h2>
+                    <h5 class="f4 b3">{{user['code']}}</h5>
+                </div><div style="height: 10px;"></div>
+            {% endfor %}
 
         </div>
         

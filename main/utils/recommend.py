@@ -4,7 +4,7 @@ from pymongo.database import Database
 import numpy as np
 
 
-Database = MongoDBManager()['gbl']
+Database = MongoDBManager()['clubfestival']
 
 class Recommend(object):
 
@@ -21,7 +21,8 @@ class Recommend(object):
         return corr2
 
     def getResult(cor):
-        booth_name = #데이터 가져오기
+        
+        booth_name = []#데이터 가져오기
         booth_name_list = list(booth_name)
         coffey_hands = booth_name_list.index("원하는 데이터") #부스 이름을 입력받음
 

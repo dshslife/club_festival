@@ -1,3 +1,7 @@
+{% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -305,7 +309,7 @@ input {
 <script src="../js/script.js"></script>
 <script>
 //json
-list = {}
+list = {{ booth | json }}
 
 function stat(i) {
     if (i == 0) {

@@ -1,3 +1,7 @@
+{% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -115,85 +119,16 @@ label {
 
         <div class="box blur shadow">
             <h4 class='b2' style="margin-left: 30px;">나의 총 점수</h4><br>
-            <h1 class="score-text">0<span class="f3">점</span></h1>
+            <h1 class="score-text">0<span class="f3">{{score}}점</span></h1>
         </div><br>
         <label class='f3' style="margin-left: 20px;">활동 내역</label><div style="height: 5px;"></div>
         <div id="AddHistory">
-            <div class="box shadow blur his-box">
-                <h5 class="act-text f3">????활동</h5>
-                <h5 class="act-score-text">+10점</h5>
-            </div><div style="height: 10px;"></div>
 
+            {% for booth in visited_booth %}
             <div class="box shadow blur his-box">
-                <h5 class="act-text f3">????활동</h5>
-                <h5 class="act-score-text">+10점</h5>
+                <h5 class="act-text f3">booth.name</h5>
             </div><div style="height: 10px;"></div>
-
-            <div class="box shadow blur his-box">
-                <h5 class="act-text f3">????활동</h5>
-                <h5 class="act-score-text">+10점</h5>
-            </div><div style="height: 10px;"></div>
-
-            <div class="box shadow blur his-box">
-                <h5 class="act-text f3">????활동</h5>
-                <h5 class="act-score-text">+10점</h5>
-            </div><div style="height: 10px;"></div>
-
-            <div class="box shadow blur his-box">
-                <h5 class="act-text f3">????활동</h5>
-                <h5 class="act-score-text">+10점</h5>
-            </div><div style="height: 10px;"></div>
-
-            <div class="box shadow blur his-box">
-                <h5 class="act-text f3">????활동</h5>
-                <h5 class="act-score-text">+10점</h5>
-            </div><div style="height: 10px;"></div>            
-            
-            <div class="box shadow blur his-box">
-                <h5 class="act-text f3">????활동</h5>
-                <h5 class="act-score-text">+10점</h5>
-            </div><div style="height: 10px;"></div>
-
-            <div class="box shadow blur his-box">
-                <h5 class="act-text f3">????활동</h5>
-                <h5 class="act-score-text">+10점</h5>
-            </div><div style="height: 10px;"></div>
-
-            <div class="box shadow blur his-box">
-                <h5 class="act-text f3">????활동</h5>
-                <h5 class="act-score-text">+10점</h5>
-            </div><div style="height: 10px;"></div>
-
-            <div class="box shadow blur his-box">
-                <h5 class="act-text f3">????활동</h5>
-                <h5 class="act-score-text">+10점</h5>
-            </div><div style="height: 10px;"></div>
-
-            <div class="box shadow blur his-box">
-                <h5 class="act-text f3">????활동</h5>
-                <h5 class="act-score-text">+10점</h5>
-            </div><div style="height: 10px;"></div>
-
-            <div class="box shadow blur his-box">
-                <h5 class="act-text f3">????활동</h5>
-                <h5 class="act-score-text">+10점</h5>
-            </div><div style="height: 10px;"></div>
-
-            <div class="box shadow blur his-box">
-                <h5 class="act-text f3">????활동</h5>
-                <h5 class="act-score-text">+10점</h5>
-            </div><div style="height: 10px;"></div>
-
-            <div class="box shadow blur his-box">
-                <h5 class="act-text f3">????활동</h5>
-                <h5 class="act-score-text">+10점</h5>
-            </div><div style="height: 10px;"></div>
-
-            <div class="box shadow blur his-box">
-                <h5 class="act-text f3">????활동</h5>
-                <h5 class="act-score-text">+10점</h5>
-            </div><div style="height: 10px;"></div>
-
+            {% endfor %}
             <div style="height: 130px;"></div>
         </div>
         

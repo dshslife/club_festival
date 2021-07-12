@@ -16,7 +16,7 @@ from webpush import send_group_notification
 import pymongo
 
 import collections
-db: Database = MongoDBManager()['gbl']
+db: Database = MongoDBManager()['clubfestival']
 
 def objectIdDecoder(list):
   results=[]
@@ -101,44 +101,45 @@ def MapView(request):
 
 @login_required(login_url="/")
 def HistoryView(request):
-    visited_booth = db['users'].aggregate([
-      {
-        "$match": {
-          "code": request.user.email,
-        },
+  rep = db['users'].find_one({'code': request.user.email})
+  visited_booth = db['users'].aggregate([
+    {
+      "$match": {
+        "code": request.user.email,
       },
-      {
-        "$lookup": {
-          "from": "booth",
-          "let": {"id": "$booth"},
-          "pipeline": [
-            {
-              "$match": {
-                "$expr": {
-                  "$in": ["$_id","$$id"]
-                }
+    },
+    {
+      "$lookup": {
+        "from": "booth",
+        "let": {"id": "$booth"},
+        "pipeline": [
+          {
+            "$match": {
+              "$expr": {
+                "$in": ["$_id","$$id"]
               }
             }
-          ],
-          "as": "res"
-        }
-      },
-      {
-          "$unwind": "$res"
-      },
-      {
-          "$project":{
-              "name": "$res.name",
-              "code": "$res.code",
-              "busy": "$res.busy"
           }
+        ],
+        "as": "res"
       }
-    ]
-    )
+    },
+    {
+        "$unwind": "$res"
+    },
+    {
+        "$project":{
+            "name": "$res.name",
+            "code": "$res.code",
+            "busy": "$res.busy"
+        }
+    }
+  ]
+  )
 
-    print(visited_booth)
+  print(visited_booth)
 
-    return render(request, "History.html", {"visited_booth": visited_booth})
+  return render(request, "History.html", {"score": rep['score'], "visited_booth": visited_booth})
 
 class CategorySelect(View):
   @login_required(login_url="/")

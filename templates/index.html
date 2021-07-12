@@ -1,6 +1,12 @@
+{% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
+{% load webpush_notifications %}
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    {% webpush_header %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -140,12 +146,12 @@ input {
 <body>
     <div class="background ani"></div>
     <h3 class="b9 f4 title ani" style="color:white; text-align: left; margin-top:20px">동아리 <span class="b2">페스티벌</span></h3>
-    
+    {% webpush_header %}
 
 
         <h1 class="login-text b8 f10">로그인을<br>진행해주세요.</h1>
       <div class="box blur shadow">
-            <a href=""><button style="border-radius:5px; width: 100%; background-color: rgb(240, 240, 240); height: 50px; border: 0.1px solid rgb(230, 230, 230); line-height: 30px; padding: 10px;   box-shadow: 0px 0px 20px -20px black; font-weight:700; font-size:15px;"><img src="https://i.pinimg.com/originals/39/21/6d/39216d73519bca962bd4a01f3e8f4a4b.png" alt="구글 로고" style="width: 30px;  float: left;">구글 로그인</button></a>
+            <a href="{% provider_login_url 'google' %}"><button style="border-radius:5px; width: 100%; background-color: rgb(240, 240, 240); height: 50px; border: 0.1px solid rgb(230, 230, 230); line-height: 30px; padding: 10px;   box-shadow: 0px 0px 20px -20px black; font-weight:700; font-size:15px;"><img src="https://i.pinimg.com/originals/39/21/6d/39216d73519bca962bd4a01f3e8f4a4b.png" alt="구글 로고" style="width: 30px;  float: left;">구글 로그인</button></a>
 
         </div><br>
         <a href="tel:010-1234-5678">
