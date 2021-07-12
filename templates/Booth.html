@@ -336,7 +336,7 @@ function add_html(id, mss, loc, name, club, stat_c) {
     $('#Add').append(html1 + id + html2 + mss + html3 + loc + html4 + html5 + stat(stat_c) + html6 + html7 + club + html8 + html9);
 }
 
-$.Each (list, function (key, value) {
+list.forEach (function (key, value) {
     var id = value.id;
     var mss = value.message;
     var locate = value.code;
