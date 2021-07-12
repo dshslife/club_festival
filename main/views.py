@@ -39,12 +39,55 @@ def initNewUser(code):
 @login_required(login_url='/')
 from bson.objectid import ObjectId
 
-
-
 def logout(request):
   auth_logout(request)
   return redirect('/')
 
+def test(request):
+  if request.method == "POST":
+    user = auth.authenticate(request, username=request.POST['code'], password='ghkdtjdtlr')
+    if user is not None:
+      auth.login(request, user)
+      return redirect('/')
+    else:
+      return render(request, 'website/login.html', {'webpush': {'group': 'startup'}, 'error': '올바르지 않은 코드입니다'})
+  else:
+    return render(request, 'website/login.html', {'webpush': {'group': 'startup'}})
+
+# 메인페이지
+def index(request):
+    if not request.user.is_authenticated:
+        return redirect('/login')
+    else:
+        rep = db['users'].find_one({'code': request.user.username})
+        if not rep:
+            initNewUser(request.user.username)
+            request.session['_id'] = str(db['users'].find_one({'code': request.user.username})['_id'])
+            print("INIT NEW USER")
+        if not '_id' in request.session:
+            request.session['_id'] = str(db['users'].find_one({'code': request.user.username})['_id'])
+        return render(request, "index.html")
+
+@login_required(login_url="/")
+def BoothInfo(request):
+    booth = db['booth'].find({})
+    result_booth = []
+    for i in booth:
+        i['id'] = str(i['_id'])
+        result_booth.append(i)
+    return render(request, "Booth.html", {'booth': result_booth})
+
+@login_required(login_url="/")
+def RankingView(request):
+    rank = db['users'].find({}).sort('point', pymongo.DESCENDING))
+    result = []
+    for i, user in enumerate(rank):
+        user['rank'] = i + 1
+        result.append(user)
+        if user['code'] == request.user.username:
+            selfUser = user
+    return render(request, "Ranking.html", {'selfuser': selfUser, 'rankingList': result})
+    
 class BoothCheck(View):
   @method_decorator(csrf_exempt)
   def dispatch(self, request, *args, **kwargs):
