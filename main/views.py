@@ -140,6 +140,25 @@ def HistoryView(request):
 
     return render(request, "History.html", {"visited_booth": visited_booth})
 
+class CategorySelect(View):
+  @login_required(login_url="/")
+  def get(self, request):
+    return render(request, "Select.html")
+
+  @login_required(login_url="/")
+  def post(self, request):
+    if request.form == None:
+      return HttpResponse(status=400)
+    else:
+      try:
+        data = request.form
+        db['users'].update_one({'code': request.user.email}, {'$set': {'category': request.POST['category'] }})
+        return HttpResponse(status=200)
+      except Exception as e:
+        print(e)
+
+
+
 class BoothCheck(View):
   @method_decorator(csrf_exempt)
   def dispatch(self, request, *args, **kwargs):
@@ -185,8 +204,7 @@ class WebPush(View):
       User = get_user_model()
       users = User.objects.all()
       print(data)
-      payload = {"head": "동아리 페스티벌 안내", "icon": "https://i.imgur.com/EqNRGOC.png", "url": "https://meetstartup.today", "body": data['message']}
-      
+      payload = {"head": data['title'], "icon": "https://i.imgur.com/EqNRGOC.png", "url": "https://meetstartup.today", "body": data['message']}
       for user in users:
         send_user_notification(user=user ,payload=payload, ttl=1000)
       return HttpResponse(status=200)
