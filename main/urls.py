@@ -15,5 +15,6 @@ urlpatterns = [
   path('push', views.WebPush.as_view(), name='webpush'),
   path('select', views.CategorySelect.as_view(), name='select_category'),
   path('api/list', views.BoothList.as_view(), name='boothlist'),
-  path('api/set', views.setBoothBusy.as_view(), name='setBoothBusy')
+  path('api/set', views.setBoothBusy.as_view(), name='setBoothBusy'),
+  path('history', views.HistoryView, name="history")
 ]

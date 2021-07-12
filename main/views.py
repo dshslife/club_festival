@@ -67,7 +67,7 @@ def index(request):
             print("INIT NEW USER")
         if not '_id' in request.session:
             request.session['_id'] = str(db['users'].find_one({'code': request.user.email})['_id'])
-        return render(request, "index.html")
+        return render(request, "Menu.html")
 
 @login_required(login_url="/")
 def BoothInfo(request):
@@ -77,7 +77,7 @@ def BoothInfo(request):
         i['id'] = str(i['_id'])
         result_booth.append(i)
     print(result_booth)
-    return render(request, "Booth.html", {'booth': result_booth})
+    return render(request, "Booth.html", {'booth': objectIdDecoder(result_booth)})
 
 @login_required(login_url="/")
 def RankingView(request):
@@ -97,7 +97,7 @@ def MapView(request):
     for i in booth:
         i['id'] = str(i['_id'])
         result_booth.append(i)
-    return render(request, "Map.html", {'booth': result_booth})
+    return render(request, "Map.html", {'booth': objectIdDecoder(result_booth)})
 
 @login_required(login_url="/")
 def HistoryView(request):
@@ -139,14 +139,13 @@ def HistoryView(request):
 
   print(visited_booth)
 
-  return render(request, "History.html", {"score": rep['score'], "visited_booth": visited_booth})
+  return render(request, "History.html", {"score": rep['point'], "visited_booth": visited_booth})
 
 class CategorySelect(View):
-  @login_required(login_url="/")
+  
   def get(self, request):
     return render(request, "Select.html")
 
-  @login_required(login_url="/")
   def post(self, request):
     if request.form == None:
       return HttpResponse(status=400)

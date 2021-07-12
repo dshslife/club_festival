@@ -309,7 +309,7 @@ input {
 <script src="../js/script.js"></script>
 <script>
 //json
-list = {{ booth | json }}
+list = {{ booth | safe }}
 
 function stat(i) {
     if (i == 0) {
