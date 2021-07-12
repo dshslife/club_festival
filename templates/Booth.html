@@ -1,7 +1,3 @@
-{% load static %}
-{% load socialaccount %}
-{% providers_media_js %}
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -10,101 +6,356 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>동아리 페스티벌</title>
     <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href='{% static "css/style.css" %}'>
-    <link rel="stylesheet" href='{% static "css/map1-grid.css" %}'>
-    <link rel="stylesheet" href='{% static "css/map2-grid.css" %}'>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../css/common.css">
 </head>
+<style>body {
+    background-color: #6337FF;
+    max-width: 700px;
+    overflow: hidden;
+}
+body * {
+    font-family: 'Gothic A1', sans-serif;
+    padding: 0px;
+    margin: 0px;
+    -webkit-font-smoothing: antialiased;
+}
+.t-dot {
+    width: 20px;
+    position: absolute;
+    height: 20px;
+    z-index: 100;
+    right: 20px;
+    top:20px;
+}
+.background {
+    width: 100vw;
+    height: 60%;
+    background-color: rgb(228, 228, 228);
+    position: fixed;
+    z-index: -1;
+    bottom: 0px;
+    left: 0px;
+}
+
+
+.booth-text {
+    margin-left: 20px;
+    margin-top: 30px;
+    color:white;
+    margin-bottom: 10px;
+    position: relative;
+    bottom: 0px;
+}
+
+.title {
+    margin-left: 20px;
+    color:black;
+    margin-top: 20px;
+}
+
+
+.half-box * {
+    display: inline-block;
+}
+
+.half-box img {
+    width: 50px;
+    height: 50px;
+}
+
+.half-box > h3 {
+    margin-bottom: 10px;
+}
+
+
+hr {
+    width: 100%;
+    height: 5px;
+    position: relative;
+    left: 50%;
+    margin-left: -50%;
+    border: 0px;
+    border-radius: 20px;
+    background-color: #6337FF;
+    margin-top: 5px;
+
+}
+
+.half-box {
+    text-align: center;
+    width: 90%;
+    background-color: rgba(250, 250, 250, 1);
+    border-radius: 20px;
+    padding: 20px 5%;
+    height: 60%;
+    float: left;
+}
+
+.stat {
+    margin-top: 30px;
+    height: 100px;
+}
+
+
+#AddRanking {
+    height: 70vh;
+    overflow: scroll;
+}
+
+.grid {
+    margin-top: 20px;
+    column-gap: 15px;
+    display: grid;
+    height: 400px;
+    grid-template-columns: repeat(2, 1fr);
+    width: 90%;
+    position: relative;
+    left: 50%;
+    margin-left: -45%;
+}
+
+.score-text {
+    text-align: right;
+    margin-right: 30px;
+}
+
+.act-text {
+    margin-left: 20px;
+    display: inline-block;
+}
+
+.act-score-text {
+    color:rgb(3, 161, 3);
+    display: inline-block;
+}
+
+#AddHistory {
+    max-height: 400px;
+    overflow: scroll;
+}
+
+
+
+.map1-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    width: 90%;
+    height: 450px;
+    overflow: scroll;
+    gap: 5px;
+    padding: 20px 5%;
+    border-radius: 10px;
+}
+
+.map2-grid {
+    overflow: scroll;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(11, 1fr);
+    width: 90%;
+    height: 400px;
+    gap: 5px;
+    padding: 20px 5%;
+    border-radius: 10px;
+    z-index: 1000;
+}
+
+select {
+    width: 90%;
+    height: 40px;
+    border: 0px;
+    border-radius: 20px;
+    position: relative;
+    background-color: white;
+    left: 50%;
+    margin-left: -45%;
+}
+
+.box {
+    width: 80%;
+    position: relative;
+    left: 50%;
+    margin-bottom: 20px;
+    margin-left: -45%;
+    background-color: rgba(250, 250, 250, 1);
+    border-radius: 20px;
+    padding: 20px 5%;
+}
+
+
+hr {
+    width: 40%;
+    margin-bottom: 25px;
+    position: relative;
+    left: 50%;
+    margin-left: -20%;
+    border: 0px;
+    border-radius: 20px;
+    background-color: #6337FF;
+    margin-top: 5px;
+}
+
+.status {
+    margin-right: 10px;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 10px;
+    display: inline-block;
+    float: left;
+}
+
+
+.booth-img {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+.booth-full > p {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.booth-full {
+    width: 90%;
+    height: 100%;
+    background-color: white;
+    position: fixed;
+    padding: 5%;
+    top: 0px;
+    left: 0px;
+    z-index: 1000;
+}
+
+.close {
+    width: 20px;
+    height: 20px;
+    position: fixed;
+    right: 30px;
+    top: 30px;
+    filter: invert(0.8);
+}
+
+.bo-ti {
+    text-align: center;
+    margin: 30px 0px;
+}
+
+#Add {
+    height: 600px;
+    width: 100%;
+    overflow: scroll;
+    position: relative;
+    bottom: 0px;
+}
+
+
+
+.his-box {
+    margin-bottom: 5px !important;
+}
+
+.his-box * {
+    display: inline-block;
+}
+.his-box > img {
+    float: left;
+}
+
+label {
+    font-size: 13px;
+}
+
+input {
+    border-radius: 20px;
+    text-align: center;
+    border: 0px;
+    height: 40px;
+    background-color: rgb(245, 245, 245);
+}</style>
 <body>
     <div class="background ani" style="height: 80%;"></div>
          <h3 class="b9 f4 title ani" style="color:white; text-align: left; margin-top:20px">동아리 <span class="b2">페스티벌</span></h3>    
-        <img src="imgs/menu.svg" class="t-dot">
+        <img src="../imgs/menu.svg" class="t-dot">
         <h1 class="booth-text b8 f10">부스체험 목록</h1>
         <div style="height: 20px;"></div>
         
         <div id="Add">
-
-            <div class="box blur shadow List">
-                <div class="status"></div>
-                <h2 class="f3 b4">FINDER</h2><br>
-                <h3 class="f4 b9">지오지브라를 활용한 이차함수 그리기</h3>
+            <div class="box blur shadow List" data-boothid="" data-message="" data-locate=""> 
+                <div class="status" style="color:'red';"></div>
+                <h2 class="f3 b4 club_name">동아리명</h2><br>
+                <h3 class="f4 b9 name">활동 제목</h3>
             </div>
-    
-    
-            <div class="box blur shadow List">
-                <div class="status"></div>
-                <h2 class="f3 b4">FINDER</h2><br>
-                <h3 class="f4 b9">지오지브라를 활용한 이차함수 그리기</h3>
-            </div>
-    
-            <div class="box blur shadow List">
-                <div class="status"></div>
-                <h2 class="f3 b4">FINDER</h2><br>
-                <h3 class="f4 b9">지오지브라를 활용한 이차함수 그리기</h3>
-            </div>
-            <div class="box blur shadow List">
-                <div class="status"></div>
-                <h2 class="f3 b4">FINDER</h2><br>
-                <h3 class="f4 b9">지오지브라를 활용한 이차함수 그리기</h3>
-            </div>
-            <div class="box blur shadow List">
-                <div class="status"></div>
-                <h2 class="f3 b4">FINDER</h2><br>
-                <h3 class="f4 b9">지오지브라를 활용한 이차함수 그리기</h3>
-            </div>
-
-            
-            <div class="box blur shadow List">
-                <div class="status"></div>
-                <h2 class="f3 b4">FINDER</h2><br>
-                <h3 class="f4 b9">지오지브라를 활용한 이차함수 그리기</h3>
-            </div>
-            <div class="box blur shadow List">
-                <div class="status"></div>
-                <h2 class="f3 b4">FINDER</h2><br>
-                <h3 class="f4 b9">지오지브라를 활용한 이차함수 그리기</h3>
-            </div>
-            <div class="box blur shadow List">
-                <div class="status"></div>
-                <h2 class="f3 b4">FINDER</h2><br>
-                <h3 class="f4 b9">지오지브라를 활용한 이차함수 그리기</h3>
-            </div>
-
-            
-            <div class="box blur shadow List">
-                <div class="status"></div>
-                <h2 class="f3 b4">FINDER</h2><br>
-                <h3 class="f4 b9">지오지브라를 활용한 이차함수 그리기</h3>
-            </div>
-            <div class="box blur shadow List">
-                <div class="status"></div>
-                <h2 class="f3 b4">FINDER</h2><br>
-                <h3 class="f4 b9">지오지브라를 활용한 이차함수 그리기</h3>
-            </div>
-            <div class="box blur shadow List">
-                <div class="status"></div>
-                <h2 class="f3 b4">FINDER</h2><br>
-                <h3 class="f4 b9">지오지브라를 활용한 이차함수 그리기</h3>
-            </div>
-
-
 
         </div>
-
-
-
-        
-
     <div class="booth-full Box-f">
-        <img src='{% static "imgs/close-cross.svg" %}' class="close">
-        <label>FINDER</label>
-        <h1 class="b8 f7">부스명</h1>
+        <img src="../imgs/close-cross.svg" class="close">
+        <label id="sb">FINDER</label>
+        <h1 class="b8 f7 bth-name">부스명</h1>
         <hr>
-        <img class="booth-img shadow" src='data:image/jpeg;base64,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'>
-        <h2 class="f5 b8 bo-ti">"콩쥐야 우리 조때써"</h2>
-        <p>부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명</p>
+        <img class="booth-img shadow" src="data:image/jpeg;base64,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">
+        <p id="sex">부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명부스 설명</p>
     </div>
             
 </body>
-<script  src='{% static "js/jquery-latest.min.js" %}'></script>
-<script src='{% static "js/script.js" %}'></script>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="../js/script.js"></script>
+<script>
+//json
+list = {}
+
+function stat(i) {
+    if (i == 0) {
+        return 'green';
+    } else if (i == 1) {
+        return 'orange';
+    } else {
+        return 'red';
+    }
+}
+
+var html1 = '<div class="box blur shadow List" data-boothid="';
+var html2 = '" data-message="';
+var html3 = '" data-locate="';
+var html4 = '">';
+var html5 = '<div class="status" style="color:';
+var html6 = ';"></div>';
+var html7 = '<h2 class="f3 b4">';
+var html8 = '</h2><br><h3 class="f4 b9">';
+var html9 = '</h3></div>';
+
+
+function add_html(id, mss, loc, name, club, stat_c) {
+    $('#Add').append(html1 + id + html2 + mss + html3 + loc + html4 + html5 + stat(stat_c) + html6 + html7 + club + html8 + html9);
+}
+
+$.Each (list, function (key, value) {
+    var id = value.id;
+    var mss = value.message;
+    var locate = value.code;
+    var name = value.name;
+    var club = value.club;
+    var stat_c = value.busy;
+    add_html(id, mss, locate, name, club, stat_c);
+});
+
+
+
+$(document).on('click', '.close',function() {
+    $('.booth-full').hide();
+});
+
+$(document).on('click', '.List',function() {
+    $('.bth-name').text($('.name').text());
+    $('#sex').text($(this).data('message'));
+    $('#sb').text($('.club_name').text());
+    $('.booth-full').show();
+});
+
+
+
+</script>
 </html>

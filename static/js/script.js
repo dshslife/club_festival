@@ -2,37 +2,27 @@ $('.Box-f').hide();
 $('#Map2').hide();
 
 $('.t-dot').on('click', function() {
-    location.href="Menu.html";
+    location.href="/Menu";
 });
 $('#Logout').on('click', function() {
     location.href="/logout";
 });
 $('#Lo-btn').on('click', function() {
-    location.href="Booth.html";
+    location.href="/Booth";
 });
 $('#Back').on('click', function() {
-    location.href="Booth.html";
+    location.href="/Booth";
 });
 $('#Maps').on('click', function() {
-    location.href="Map.html";
+    location.href="/Map";
 });
 $('#Record').on('click', function() {
-    location.href="History.html";
+    location.href="/History";
 });
 $('#Ranking').on('click', function() {
-    location.href="Ranking.html";
+    location.href="/Ranking";
 });
 
-
-
-$(document).on('click', '.close',function() {
-    $('.booth-full').hide();
-});
-
-$(document).on('click', '.List',function() {
-    $('.booth-full').show();
-    console.log(1);
-});
 
 
 

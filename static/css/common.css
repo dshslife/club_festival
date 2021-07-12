@@ -1,0 +1,46 @@
+.f1 {font-size: 5px;}
+.f2 {font-size: 10px;}
+.f3 {font-size: 15px;}
+.f4 {font-size: 20px;}
+.f5 {font-size: 25px;}
+.f6 {font-size: 30px;}
+.f7 {font-size: 35px;}
+.f8 {font-size: 40px;}
+.f9 {font-size: 45px;}
+.f10 {font-size: 50px;}
+.f11 {font-size: 55px;}
+.f12 {font-size: 60px;}
+.f13 {font-size: 65px;}
+.f14 {font-size: 70px;}
+.f15 {font-size: 75px;}
+.f16 {font-size: 80px;}
+.f17 {font-size: 85px;}
+.f18 {font-size: 90px;}
+.f19 {font-size: 95px;}
+.f20 {font-size: 100px;}
+.f21 {font-size: 105px;}
+.f22 {font-size: 110px;}
+.f23 {font-size: 115px;}
+
+.b1 {font-weight: 100;}
+.b2 {font-weight: 200;}
+.b3 {font-weight: 300;}
+.b4 {font-weight: 400;}
+.b5 {font-weight: 500;}
+.b6 {font-weight: 600;}
+.b7 {font-weight: 700;}
+.b8 {font-weight: 800;}
+.b9 {font-weight: 900;}
+
+.shadow { 
+    box-shadow: 0px 0px 27px -20px rgb(61, 61, 61);
+    border: 0.1px solid rgb(240, 240, 240);
+}
+.blur {
+    /* -webkit-backdrop-filter: blur(40px);
+    backdrop-filter: blur(40px); */
+}
+
+.ani {
+    transition: 0.8s;
+}
