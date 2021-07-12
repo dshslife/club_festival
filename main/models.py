@@ -20,11 +20,14 @@ class BoothLog(models.Model):
     class Meta:
         abstract = True
 
-class BoothLogForm(forms.ModelForm)
+class BoothLogForm(forms.ModelForm):
+    class Meta:
+        model = BoothLog
+        
 
 class User(models.Model):
     _id = models.ObjectIdField()
     award = models.BooleanField()
     bingo = models.ArrayField()
 
-    objedts = models.DjongoManager()
+    objects = models.DjongoManager()
