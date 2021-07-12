@@ -8,8 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>동아리 페스티벌</title>
     <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href='{% static "css/common.css" %}'>
 </head>
 <style>body {
     background-color: #6337FF;
@@ -120,35 +119,35 @@ body * {
 
          <div class="grid">
             <div class="blur shadow half-box" id="Record">
-                <img width="40%" src="../imgs/score.svg"><br>
+                <img width="40%" src='{% static "imgs/score.svg" %}'><br>
                 <h3>점수 기록</h3>
             </div>
 
             <div class="blur shadow half-box" id="Ranking">
-                <img width="40%" src="../imgs/ranking.svg"><br>
+                <img width="40%" src='{% static "imgs/ranking.svg" %}'><br>
                 <h3>순위</h3>
             </div>
             
             <div class="blur shadow half-box" id="Maps">
-                <img width="40%" src="../imgs/map.svg"><br>
+                <img width="40%" src='{% static "imgs/map.svg" %}'><br>
                 <h3>지도</h3>
             </div>
 
             <div class="blur shadow half-box">
                 <a href="tel:010-1234-5678">
-                    <img width="40%" src="../imgs/Help-1.svg" alt=""><br>
+                    <img width="40%" src='{% static "imgs/Help-1.svg" %}' alt=""><br>
                     <h3 style="color: black;">도움 요청</h3>
                 </a>
             </div>
     
 
             <div class="blur shadow half-box" id="Logout">
-                <img width="40%" src="../imgs/Logout.svg"><br>
+                <img width="40%" src='{% static "imgs/Logout.svg" %}'><br>
                 <h3>로그아웃</h3>
             </div>
 
             <div class="blur shadow half-box" id="Back">
-                <img width="40%" src="../imgs/Back.svg" alt=""><br>
+                <img width="40%" src='{% static "imgs/Back.svg" %}' alt=""><br>
                 <h3>메인</h3>
             </div>
 
@@ -159,8 +158,8 @@ body * {
 
 </body>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="../js/script.js"></script>
-<script src="../js/qr-git.js"></script>
+<script src='{% static "js/script.js"%}'></script>
+<script src='{% static "js/qr-git.js"%}'></script>
 <script>
 var str = 'naver.com'
 

@@ -10,8 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>동아리 페스티벌</title>
     <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href='{% static "style.css" %}'>
+    <link rel="stylesheet" href='{% static "../css/common.css" %}'>
 </head>
 <style>body {
     background-color: #6337FF;
@@ -283,7 +283,7 @@ input {
 <body>
     <div class="background ani" style="height: 80%;"></div>
          <h3 class="b9 f4 title ani" style="color:white; text-align: left; margin-top:20px">동아리 <span class="b2">페스티벌</span></h3>    
-        <img src="../imgs/menu.svg" class="t-dot">
+        <img src='{% static "../imgs/menu.svg" %}' class="t-dot">
         <h1 class="booth-text b8 f10">부스체험 목록</h1>
         <div style="height: 20px;"></div>
         
@@ -296,7 +296,7 @@ input {
 
         </div>
     <div class="booth-full Box-f">
-        <img src="../imgs/close-cross.svg" class="close">
+        <img src='{% static "../imgs/close-cross.svg" %}' class="close">
         <label id="sb">FINDER</label>
         <h1 class="b8 f7 bth-name">부스명</h1>
         <hr>
@@ -306,7 +306,7 @@ input {
             
 </body>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="../js/script.js"></script>
+<script src='{% static "../js/script.js" %}'></script>
 <script>
 //json
 list = {{ booth | safe }}
