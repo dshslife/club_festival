@@ -94,19 +94,26 @@ WSGI_APPLICATION = 'club_festival.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'djongo',
+#         'NAME': 'gbl',
+#         'ENFORCE_SCHEMA': False,
+#         'CLIENT': {
+#             'host': "agaya.happycastle.xyz",
+#             'port': 27017,
+#             'username': 'admin',
+#             'password': 'happycastle!6216',
+#             'authSource': 'admin',
+#             'authMechanism': 'SCRAM-SHA-1'
+#         }
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'gbl',
-        'ENFORCE_SCHEMA': False,
-        'CLIENT': {
-            'host': "agaya.happycastle.xyz",
-            'port': 27017,
-            'username': 'admin',
-            'password': 'happycastle!6216',
-            'authSource': 'admin',
-            'authMechanism': 'SCRAM-SHA-1'
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 

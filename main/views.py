@@ -37,7 +37,6 @@ def initNewUser(code):
     return False
   return True
 
-@login_required(login_url='/')
 from bson.objectid import ObjectId
 
 def logout(request):
@@ -51,9 +50,9 @@ def test(request):
       auth.login(request, user)
       return redirect('/')
     else:
-      return render(request, 'website/login.html', {'webpush': {'group': 'startup'}, 'error': '올바르지 않은 코드입니다'})
+      return render(request, 'index.html', {'webpush': {'group': 'startup'}, 'error': '올바르지 않은 코드입니다'})
   else:
-    return render(request, 'website/login.html', {'webpush': {'group': 'startup'}})
+    return render(request, 'index.html', {'webpush': {'group': 'startup'}})
 
 # 메인페이지
 def index(request):
@@ -80,7 +79,7 @@ def BoothInfo(request):
 
 @login_required(login_url="/")
 def RankingView(request):
-    rank = db['users'].find({}).sort('point', pymongo.DESCENDING))
+    rank = db['users'].find({}).sort('point', pymongo.DESCENDING)
     result = []
     for i, user in enumerate(rank):
         user['rank'] = i + 1
