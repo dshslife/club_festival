@@ -16,6 +16,7 @@ from webpush import send_group_notification
 import pymongo
 
 import collections
+db: Database = MongoDBManager()['gbl']
 
 def objectIdDecoder(list):
   results=[]
@@ -87,7 +88,55 @@ def RankingView(request):
         if user['code'] == request.user.username:
             selfUser = user
     return render(request, "Ranking.html", {'selfuser': selfUser, 'rankingList': result})
-    
+
+@login_required(login_url="/")
+def MapView(request):
+    booth = db['booth'].find({})
+    result_booth = []
+    for i in booth:
+        i['id'] = str(i['_id'])
+        result_booth.append(i)
+    return render(request, "Map.html", {'booth': result_booth})
+
+@login_required(login_url="/")
+def HistoryView(request):
+    visited_booth = db['users'].aggregate([
+      {
+        "$match": {
+          "code": request.user.username,
+        },
+      },
+      {
+        "$lookup": {
+          "from": "booth",
+          "let": {"id": "$booth"},
+          "pipeline": [
+            {
+              "$match": {
+                "$expr": {
+                  "$in": ["$_id","$$id"]
+                }
+              }
+            }
+          ],
+          "as": "res"
+        }
+      },
+      {
+          "$unwind": "$res"
+      },
+      {
+          "$project":{
+              "name": "$res.name",
+              "code": "$res.code",
+              "busy": "$res.busy"
+          }
+      }
+    ]
+    )
+
+    return render(request, "History.html", {"visited_booth": visited_booth})
+
 class BoothCheck(View):
   @method_decorator(csrf_exempt)
   def dispatch(self, request, *args, **kwargs):
