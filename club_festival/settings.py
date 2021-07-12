@@ -152,6 +152,11 @@ USE_L10N = True
 
 USE_TZ = True
 
+WEBPUSH_SETTINGS = {
+    "VAPID_PUBLIC_KEY": "BIOT7OjPFTl9ebFWT4nSUwD8UIT68e5JgT3rT-IZUkrwWFvKuhkZUjkfNQB0B_xmTLrdF2nYUPMmTrFkVo8YtwA",
+    "VAPID_PRIVATE_KEY":"6U4HpZEtKvZQLZ3gcLn8MAe4suKp8O9CD491GRFIzoQ",
+    "VAPID_ADMIN_EMAIL": "happycastle@tpk.kr"
+}
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
@@ -169,3 +174,15 @@ LOGIN_REDIRECT_URL = "/"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}

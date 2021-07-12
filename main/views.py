@@ -59,13 +59,14 @@ def index(request):
     if not request.user.is_authenticated:
         return redirect('/login')
     else:
-        rep = db['users'].find_one({'code': request.user.username})
+        rep = db['users'].find_one({'code': request.user.email})
+        print(request.user.email)
         if not rep:
-            initNewUser(request.user.username)
-            request.session['_id'] = str(db['users'].find_one({'code': request.user.username})['_id'])
+            initNewUser(request.user.email)
+            request.session['_id'] = str(db['users'].find_one({'code': request.user.email})['_id'])
             print("INIT NEW USER")
         if not '_id' in request.session:
-            request.session['_id'] = str(db['users'].find_one({'code': request.user.username})['_id'])
+            request.session['_id'] = str(db['users'].find_one({'code': request.user.email})['_id'])
         return render(request, "index.html")
 
 @login_required(login_url="/")
@@ -75,6 +76,7 @@ def BoothInfo(request):
     for i in booth:
         i['id'] = str(i['_id'])
         result_booth.append(i)
+    print(result_booth)
     return render(request, "Booth.html", {'booth': result_booth})
 
 @login_required(login_url="/")
@@ -84,7 +86,7 @@ def RankingView(request):
     for i, user in enumerate(rank):
         user['rank'] = i + 1
         result.append(user)
-        if user['code'] == request.user.username:
+        if user['code'] == request.user.email:
             selfUser = user
     return render(request, "Ranking.html", {'selfuser': selfUser, 'rankingList': result})
 
@@ -102,7 +104,7 @@ def HistoryView(request):
     visited_booth = db['users'].aggregate([
       {
         "$match": {
-          "code": request.user.username,
+          "code": request.user.email,
         },
       },
       {
@@ -134,6 +136,8 @@ def HistoryView(request):
     ]
     )
 
+    print(visited_booth)
+
     return render(request, "History.html", {"visited_booth": visited_booth})
 
 class BoothCheck(View):
@@ -150,7 +154,7 @@ class BoothCheck(View):
         if not 'code' in data and 'point' in data and not 'booth' in data:
           return JsonResponse(status=400, data={'status': 'NO_CODE_ERROR'})
         if 'booth' in data:
-          booth = db['booth'].find_one({'_id': ObjectId(data['booth'])})
+          booth = db['booth'].find_one({'code': data['booth']})
           if booth == None:
             return JsonResponse(status=400, data={ 'status': 'NO_BOOTH_ERROR'})
           usertmp = dict(db['users'].find_one({'code': data['code']}))
@@ -164,8 +168,9 @@ class BoothCheck(View):
       except Exception as e:
         return JsonResponse(status=500, data={'error': str(e)})
 
+from django.contrib.auth import get_user_model
 
-from webpush.utils import send_to_subscription
+from webpush import send_user_notification
 
 class WebPush(View):
   @method_decorator(csrf_exempt)
@@ -177,7 +182,13 @@ class WebPush(View):
       return HttpResponse(status=404)
     else:
       data = json.loads(request.body)
-      send_group_notification(group_name="startup",payload={"head": "스타트업 밋업데이 2020", "icon": "https://i.imgur.com/EqNRGOC.png", "url": "https://meetstartup.today", "body": data['message']}, ttl=1000)
+      User = get_user_model()
+      users = User.objects.all()
+      print(data)
+      payload = {"head": "동아리 페스티벌 안내", "icon": "https://i.imgur.com/EqNRGOC.png", "url": "https://meetstartup.today", "body": data['message']}
+      
+      for user in users:
+        send_user_notification(user=user ,payload=payload, ttl=1000)
       return HttpResponse(status=200)
 
 class BoothList(View):
@@ -198,10 +209,10 @@ class setBoothBusy(View):
     if request.body == None:
       return HttpResponse(status=400)
     data = json.loads(request.body)
-    if not '_id' in data or not 'busy' in data:
+    if not 'code' in data or not 'busy' in data:
       return HttpResponse(status=403)
     else:
-      print(list(db['booth'].find({'_id' : ObjectId(data['_id']) })))
-      db['booth'].update_one({'_id': ObjectId(data['_id'])}, {'$set': {'busy': data['busy']}})
+      print(list(db['booth'].find({'code' : ObjectId(data['code']) })))
+      db['booth'].update_one({'code': ObjectId(data['code'])}, {'$set': {'busy': data['busy']}})
 
       return HttpResponse(status=200)
