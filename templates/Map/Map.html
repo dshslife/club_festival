@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동아리 페스티벌</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href='{% static "style.css" %}'>
+    <link rel="stylesheet" href='{% static "../css/common.css" %}'>
+    <link rel="stylesheet" href='{% static "../css/map1-grid.css" %}'>
+    <link rel="stylesheet" href='{% static "../css/map2-grid.css" %}'>
+</head>
+<style>
+    body {
+    background-color: #6337FF;
+    max-width: 700px;
+    overflow: hidden;
+}
+body * {
+    font-family: 'Gothic A1', sans-serif;
+    padding: 0px;
+    margin: 0px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.t-dot {
+    width: 20px;
+    position: absolute;
+    height: 20px;
+    z-index: 100;
+    right: 20px;
+    top:20px;
+}
+
+.background {
+    width: 100vw;
+    height: 60%;
+    background-color: rgb(228, 228, 228);
+    position: fixed;
+    z-index: -1;
+    bottom: 0px;
+    left: 0px;
+}
+
+
+.booth-text {
+    margin-left: 20px;
+    margin-top: 30px;
+    color:white;
+    margin-bottom: 10px;
+    position: relative;
+    bottom: 0px;
+}
+
+.title {
+    margin-left: 20px;
+    color:black;
+    margin-top: 20px;
+}
+
+
+.map1-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    width: 90%;
+    height: 450px;
+    overflow: scroll;
+    gap: 5px;
+    padding: 20px 5%;
+    border-radius: 10px;
+}
+
+.map2-grid {
+    overflow: scroll;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(11, 1fr);
+    width: 90%;
+    height: 400px;
+    gap: 5px;
+    padding: 20px 5%;
+    border-radius: 10px;
+    z-index: 1000;
+}
+
+select {
+    width: 90%;
+    height: 40px;
+    border: 0px;
+    border-radius: 20px;
+    position: relative;
+    background-color: white;
+    left: 50%;
+    margin-left: -45%;
+}
+</style>
+<body>
+    <div class="background ani" style="height: 80%;"></div>
+    <h3 class="b9 f4 title ani" style="color:white; text-align: left; margin-top:20px">동아리 <span class="b2">페스티벌</span></h3>
+
+    
+        <img src='{% static "../imgs/menu.svg" class="t-dot" %}'>
+
+        <h1 class="booth-text b8 f10" style="margin-bottom: 30px;">지도</h1>
+
+        <select class="map shadow" onchange="select(this)" style="margin-bottom: 10px;">
+            <option value="0">백암관 앞 마당</option>
+            <option value="1">백암관 3층 체육관</option>
+        </select>
+        <div id="Map1">
+            <div class="map1-grid">
+                <div class="item1 shadow"><h4 class="f3 b4" id="D-01">D-01</h4></div>
+                <div class="item1 shadow"><h4 class="f3 b4">실내</h4></div>
+                <div class="item1 shadow"><h4 class="f3 b4" id="D-02">D-02</h4></div>
+                <div class="item1 shadow"><h4 class="f3 b4" id="D-03">D-03</h4></div>
+                <div class="item1 shadow"><h4 class="f3 b4" id="D-04">D-04</h4></div>
+                <div class="item1 shadow"><h4 class="f3 b4">출입문</h4></div>
+                <div class="item1 shadow"><h4 class="f3 b4">실외</h4></div>
+                <div class="item1 shadow"><h4 class="f3 b4" id="D-05">D-05</h4></div>
+                <div class="item1 shadow"><h4 class="f3 b4" id="D-06">D-06</h4></div>
+                <div class="item1 shadow"><h4 class="f3 b4" id="D-07">D-07</h4></div>
+                <div class="item1 shadow"><h4 class="f3 b4" id="D-08">D-08</h4></div>
+                <div class="item1 shadow"><h4 class="f3 b4" id="D-09">D-09</h4></div>
+                <div class="item1 shadow"><h4 class="f3 b4" id="D-10">D-10</h4></div>
+                <div class="item1 shadow"><h4 class="f3 b4" id="D-11">D-11</h4></div>
+                <div class="item1 shadow"><h4 class="f3 b4" id="D-12">D-12</h4></div>
+                <div class="item1 shadow"><h4 class="f3 b4" id="D-00">D-00</h4></div>
+
+            </div>
+        </div>
+
+
+        <div id="Map2">
+            <div class="map2-grid">
+                <div class="item2 shadow"><h4 class="f3 b4">운영본부</h4></div>
+                <div class="item2 shadow"><h4 class="f3 b4" id="A-01">A-01</h4></div>
+                <div class="item2 shadow"><h4 class="f3 b4" id="A-02">A-02</h4></div>
+                <div class="item2 shadow"><h4 class="f3 b4" id="A-03">A-03</h4></div>
+                <div class="item2 shadow"><h4 class="f3 b4" id="A-04">A-04</h4></div>
+                <div class="item2 shadow"><h4 class="f3 b4" id="A-05">A-05</h4></div>
+                <div class="item2 shadow"><h4 class="f3 b4" id="A-06">A-06</h4></div>
+                <div class="item2 shadow"><h4 class="f3 b4" id="A-07">A-07</h4></div>
+                <div class="item2 shadow"><h4 class="f3 b4" id="A-08">A-08</h4></div>
+                <div class="item2 shadow"><h4 class="f3 b4" id="A-09">A-09</h4></div>
+                <div class="item2 shadow"><h4 class="f3 b4" id="A-10">A-10</h4></div>
+                <div class="item2 shadow"><h4 class="f3 b4" id="C-01">C-01</h4></div>
+                <div class="item2 shadow"><h4 class="f3 b4" id="C-02">C-02</h4></div>
+                <div class="item2 shadow"><h4 class="f3 b4" id="C-03">C-03</h4></div>
+                <div class="item2 shadow"><h4 class="f3 b4" id="C-04">C-04</h4></div>
+                <div class="item2 shadow"><h4 class="f3 b4" id="C-05">C-05</h4></div>
+                <div class="item2 shadow"><h4 class="f3 b4" id="C-06">C-06</h4></div>
+                <div class="item2 shadow"><h4 class="f3 b4" id="C-07">C-07</h4></div>
+                <div class="item2 shadow"><h4 class="f3 b4" id="C-08">C-08</h4></div>
+                <div class="item2 shadow"><h4 class="f3 b4" id="B-01">B-01</h4></div>
+                <div class="item2 shadow"><h4 class="f3 b4" id="B-02">B-02</h4></div>
+                <div class="item2 shadow"><h4 class="f3 b4" id="B-03">B-03</h4></div>
+                <div class="item2 shadow"><h4 class="f3 b4" id="B-04">B-04</h4></div>
+                <div class="item2 shadow"><h4 class="f3 b4" id="B-05">B-05</h4></div>
+                <div class="item2 shadow"><h4 class="f3 b4" id="B-06">B-06</h4></div>
+                <div class="item2 shadow"><h4 class="f3 b4" id="B-07">B-07</h4></div>
+                <div class="item2 shadow"><h4 class="f3 b4" id="B-08">B-08</h4></div>
+                <div class="item2 shadow"><h4 class="f3 b4" id="B-09">B-09</h4></div>
+                <div class="item2 shadow"><h4 class="f3 b4" id="B-10">B-10</h4></div>
+            </div>
+        </div>
+
+</body>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src='{% static "../js/script.js" %}'></script>
+<script>
+//json
+list = {}
+
+
+function stat(i) {
+    if (i == 0) {
+        return 'green';
+    } else if (i == 1) {
+        return 'orange';
+    } else {
+        return 'red';
+    }
+}
+
+$.Each (list, function (key, value) {
+    var stat_c = stat(int(value.busy));
+    var code = value.code;
+    $('#' + code).css('color', stat_c);
+});
+</script>
+</html>

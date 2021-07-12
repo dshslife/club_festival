@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동아리 페스티벌</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href='{% static "style.css" %}'>
+    <link rel="stylesheet" href='{% static "../css/common.css" %}'>
+
+</head>
+<style>
+    body {
+    background-color: #6337FF;
+    max-width: 700px;
+    overflow: hidden;
+}
+body * {
+    font-family: 'Gothic A1', sans-serif;
+    padding: 0px;
+    margin: 0px;
+    -webkit-font-smoothing: antialiased;
+}
+.t-dot {
+    width: 20px;
+    position: absolute;
+    height: 20px;
+    z-index: 100;
+    right: 20px;
+    top:20px;
+}
+
+.background {
+    width: 100vw;
+    height: 60%;
+    background-color: rgb(228, 228, 228);
+    position: fixed;
+    z-index: -1;
+    bottom: 0px;
+    left: 0px;
+}
+
+.booth-text {
+    margin-left: 20px;
+    margin-top: 30%;
+    color:white;
+    margin-bottom: 10px;
+    position: relative;
+    bottom: 0px;
+}
+
+.title {
+    margin-left: 20px;
+    color:black;
+    margin-top: 20px;
+}
+
+.btn-div {
+    text-align: left;
+    width: 80%;
+    left: 50%;
+    margin-left: -40%;
+    height: 40%;
+    position: absolute;
+    bottom: 5%;
+    word-break: keep-all;
+}
+
+
+input[id="cb1"] + label {
+    padding: 10px 20px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 40px;
+    border: 0.1px solid grey;
+    transition: 0.5s;
+    color: grey;
+}
+input[id="cb1"]:checked + label {
+	background-color: #6337FF;
+    color: white;
+}
+input[id="cb1"] {
+	display: none;
+}
+
+
+input[id="cb2"] + label {
+    padding: 10px 20px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 40px;
+    border: 0.1px solid grey;
+    transition: 0.5s;
+    color: grey;
+}
+input[id="cb2"]:checked + label {
+	background-color: #6337FF;
+    color: white;
+}
+input[id="cb2"] {
+	display: none;
+}
+
+
+input[id="cb3"] + label {
+    padding: 10px 20px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 40px;
+    border: 0.1px solid grey;
+    transition: 0.5s;
+    color: grey;
+}
+input[id="cb3"]:checked + label {
+	background-color: #6337FF;
+    color: white;
+}
+input[id="cb3"] {
+	display: none;
+}
+
+
+
+input[id="cb4"] + label {
+    padding: 10px 20px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 40px;
+    border: 0.1px solid grey;
+    transition: 0.5s;
+    color: grey;
+}
+input[id="cb4"]:checked + label {
+	background-color: #6337FF;
+    color: white;
+}
+input[id="cb4"] {
+	display: none;
+}
+
+input[id="cb5"] + label {
+    padding: 10px 20px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 40px;
+    border: 0.1px solid grey;
+    transition: 0.5s;
+    color: grey;
+}
+input[id="cb5"]:checked + label {
+	background-color: #6337FF;
+    color: white;
+}
+input[id="cb5"] {
+	display: none;
+}
+
+input[id="cb6"] + label {
+    padding: 10px 20px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 40px;
+    border: 0.1px solid grey;
+    transition: 0.5s;
+    color: grey;
+}
+input[id="cb6"]:checked + label {
+	background-color: #6337FF;
+    color: white;
+}
+input[id="cb6"] {
+	display: none;
+}
+
+
+
+.btn {
+    width: 50%;
+    border:0px;
+    border-radius: 40px;
+    background-color: #6337FF;
+    color: white;
+    padding: 10px;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    margin-left: -25%;
+}
+
+.btn:disabled {
+    background-color: rgb(51, 51, 51);
+}
+</style>
+<body>
+    <div class="background ani" style="height: 50%;"></div>
+    <h3 class="b9 f4 title ani" style="color:white; text-align: left; margin-top:20px">동아리 <span class="b2">페스티벌</span></h3>
+    <h1 class="booth-text b8 f10">원하는<br>카테고리를<br>선택하세요.</h1>
+    
+
+    <form action="/select" method="POST">
+    <div class="btn-div">
+        <input type="checkbox" id="cb1" onclick="ckbox()">
+        <label for="cb1" class="f4 b6">과학</label>
+        <input type="checkbox" id="cb2" onclick="ckbox()">
+        <label for="cb2" class="f4 b6">기술</label>
+        <input type="checkbox" id="cb3" onclick="ckbox()">
+        <label for="cb3" class="f4 b6">영상</label><br><br><br>
+        <input type="checkbox" id="cb4" onclick="ckbox()">
+        <label for="cb4" class="f4 b6">인문</label>
+
+    </div>
+    <button class="f4 b7 btn ani" id="sub" type="submit" disabled="false">제출</button>
+    </form>
+
+</body>
+<script  src='{% static "../js/jquery-latest.min.js" %}'></script>
+<script src='{% static "../js/script.js" %}'></script>
+<script src='{% static "../js/qr-git.js" %}'></script>
+<script src='{% static "../js/qr.js" %}'></script>
+<script>
+function ckbox() {
+    var a = $('#cb1').prop("checked");
+    var b = $('#cb2').prop("checked");
+    var c = $('#cb3').prop("checked");
+    var d = $('#cb4').prop("checked");
+    sum = a + b + c + d;
+    if (sum > 2) {
+        alert('2개까지 선택할 수 있습니다.');
+        $('#sub').attr('disabled', true);
+    } else {
+        $('#sub').attr('disabled', false);
+    }
+    console.log(a, b, c, d);
+}
+</script>
+</html>
