@@ -288,11 +288,14 @@ input {
         <div style="height: 20px;"></div>
         
         <div id="Add">
+            
+            <!--
             <div class="box blur shadow List" data-boothid="" data-message="" data-locate=""> 
                 <div class="status" style="color:'red';"></div>
                 <h2 class="f3 b4 club_name">동아리명</h2><br>
                 <h3 class="f4 b9 name">활동 제목</h3>
             </div>
+            -->
 
         </div>
     <div class="booth-full Box-f">
@@ -333,7 +336,7 @@ var html9 = '</h3></div>';
 
 
 function add_html(id, mss, loc, name, club, stat_c) {
-    $('#Add').append(html1 + id + html2 + mss + html3 + loc + html4 + html5 + stat(stat_c) + html6 + html7 + club + html8 + html9);
+    $('#Add').append(html1 + id + html2 + mss + html3 + loc + html4 + html5 + stat(stat_c) + html6 + html7 + club + html8 + name + html9);
 }
 
     
