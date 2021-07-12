@@ -1,8 +1,12 @@
 {% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
+{% load webpush_notifications %}
 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    {% webpush_header %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -108,7 +112,7 @@ body * {
         
     </div>
     <h3 class="b9 f4 title ani" style="color:white; text-align: left; margin-top:20px">동아리 <span class="b2">페스티벌</span></h3>
-    
+    {% webpush_button %}
 
     <div id="Main">
          <div class="box blur shadow stat">
