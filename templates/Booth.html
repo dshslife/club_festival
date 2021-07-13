@@ -211,6 +211,13 @@ hr {
     float: left;
 }
 
+.place {
+    padding: 3px 10px;
+    background-color: rgb(223, 223, 223);    
+    display: inline-block;
+    margin-top: 10px;
+    border-radius: 10px ;
+}
 
 .booth-img {
     width: 100%;
@@ -332,11 +339,13 @@ var html5 = '<div class="status" style="background-color:';
 var html6 = ';"></div>';
 var html7 = '<h2 class="f3 b4">';
 var html8 = '</h2><br><h3 class="f4 b9">';
-var html9 = '</h3></div>';
+var html9 = '</h3>';
+var html10 = '<h3 class="f4 b9 name">';
+var html11 = '</h3></div>';
 
 
 function add_html(id, mss, loc, name, club, stat_c) {
-    $('#Add').append(html1 + id + html2 + mss + html3 + loc + html4 + html5 + stat(stat_c) + html6 + html7 + club + html8 + name + html9);
+    $('#Add').append(html1 + id + html2 + mss + html3 + loc + html4 + html5 + stat(stat_c) + html6 + html7 + club + html8 + name + html9 + html10 + loc + html11);
 }
 
     
@@ -362,7 +371,7 @@ $('#Add').append('<div style="height: 30vh;"></div>');
 //});
 
 $(document).on('click', '.List',function() {
-    location.href = "Map.html";
+    location.href = "map.html";
 });
 
 
