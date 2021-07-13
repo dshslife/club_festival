@@ -1,21 +1,20 @@
 {% load static %}
 {% load socialaccount %}
 {% providers_media_js %}
+{% load webpush_notifications %}
 
 <!DOCTYPE html>
 <html lang="ko">
 <head>
+    {% webpush_header %}
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>동아리 페스티벌</title>
     <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href='{% static "css/common.css" %}'>
-    <link rel="stylesheet" href='{% static "css/map1-grid.css" %}'>
-    <link rel="stylesheet" href='{% static "css/map2-grid.css" %}'>
 </head>
-<style>
-    body {
+<style>body {
     background-color: #6337FF;
     max-width: 700px;
     overflow: hidden;
@@ -26,6 +25,8 @@ body * {
     margin: 0px;
     -webkit-font-smoothing: antialiased;
 }
+
+
 
 .t-dot {
     width: 20px;
@@ -47,15 +48,6 @@ body * {
 }
 
 
-.booth-text {
-    margin-left: 20px;
-    margin-top: 30px;
-    color:white;
-    margin-bottom: 10px;
-    position: relative;
-    bottom: 0px;
-}
-
 .title {
     margin-left: 20px;
     color:black;
@@ -63,136 +55,162 @@ body * {
 }
 
 
-.map1-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(8, 1fr);
-    width: 90%;
-    height: 450px;
-    overflow: scroll;
-    gap: 5px;
-    padding: 20px 5%;
-    border-radius: 10px;
+.half-box * {
+    display: inline-block;
 }
 
-.map2-grid {
-    overflow: scroll;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(11, 1fr);
-    width: 90%;
-    height: 400px;
-    gap: 5px;
-    padding: 20px 5%;
-    border-radius: 10px;
-    z-index: 1000;
+.half-box img {
+    width: 50px;
+    height: 50px;
 }
 
-select {
+.half-box > h3 {
+    margin-bottom: 10px;
+}
+
+
+.half-box {
+    text-align: center;
     width: 90%;
-    height: 40px;
-    border: 0px;
+    background-color: rgba(250, 250, 250, 1);
     border-radius: 20px;
+    padding: 20px 5%;
+    height: 60%;
+    float: left;
+}
+
+.grid {
+    margin-top: 20px;
+    column-gap: 15px;
+    display: grid;
+    height: 400px;
+    grid-template-columns: repeat(2, 1fr);
+    width: 90%;
     position: relative;
-    background-color: white;
     left: 50%;
     margin-left: -45%;
+}
+
+
+.box {
+    width: 80%;
+    position: relative;
+    left: 50%;
+    margin-bottom: 20px;
+    margin-left: -45%;
+    background-color: rgba(250, 250, 250, 1);
+    border-radius: 20px;
+    padding: 20px 5%;
+}
+
+
+.stat {
+    margin-top: 30px;
+    height: 100px;
+}
+
+.group {
+    width: 100vw;
+    height: 60vh;
+    position: absolute;
+    left: 0px;
+    overflow: scroll;
+}
+
+
+
+#webpush-subscribe-button, #webpush-message {
+    width: 0px !important;
+    height: 0px !important;
 }
 </style>
 <body>
     <div class="background ani" style="height: 80%;"></div>
+        
+    </div>
     <h3 class="b9 f4 title ani" style="color:white; text-align: left; margin-top:20px">동아리 <span class="b2">페스티벌</span></h3>
+    {% webpush_button %}
 
+         <div class="box blur shadow stat">
+             <h1 class="f5 b2" style="margin-top:10px;">사용자 이름</h1>
+             <h3 class="f8 b8">{{user.point}}<span class="f4">점</span></h3>
+             <div height="80px" id="qrcode" style="float: right; margin-top: -80px;"></div>
+         </div>
+
+
+        <div class="group">
+            <div onclick="go();" class="box blur shadow" style="text-align: center;">
+               <h1 class="f3 b5" id="Recommend1">부스</h1>
+            </div>
+
+             <div onclick="go();" class="box blur shadow" style="text-align: center;">
+                <h1 class="f3 b5" id="Recommend2">부스</h1>
+             </div>
+
+             <div onclick="go();" class="box blur shadow" style="text-align: center;">
+                <h1 class="f3 b5" id="Recommend3">부스</h1>
+             </div>
+
+           <div class="grid">
+              <div class="blur shadow half-box" id="Record">
+                 <img width="40%" src='{% static "imgs/score.svg" %}'><br>
+                 <h3>점수 기록</h3>
+              </div>
+
+                <div class="blur shadow half-box" id="Ranking">
+                <img width="40%" src='{% static "imgs/ranking.svg" %}'><br>
+                <h3>순위</h3>
+               </div>
+            
+               <div class="blur shadow half-box" id="Maps">
+                <img width="40%" src='{% static "imgs/map.svg" %}'><br>
+                <h3>지도</h3>
+                </div>
+
+                <div class="blur shadow half-box">
+                <a href="tel:010-1234-5678">
+                    <img width="40%" src='{% static "imgs/Help-1.svg" %}' alt=""><br>
+                    <h3 style="color: black;">도움 요청</h3>
+                </a>
+                </div>
     
-        <img src='{% static "imgs/menu.svg" %}' class="t-dot">
 
-        <h1 class="booth-text b8 f10" style="margin-bottom: 30px;">지도</h1>
+                <div class="blur shadow half-box" id="Logout">
+                <img width="40%" src='{% static "imgs/Logout.svg" %}'><br>
+                <h3>로그아웃</h3>
+               </div>
 
-        <select class="map shadow" onchange="select(this)" style="margin-bottom: 10px;">
-            <option value="0">백암관 앞 마당</option>
-            <option value="1">백암관 3층 체육관</option>
-        </select>
-        <div id="Map1">
-            <div class="map1-grid">
-                <div class="item1 shadow"><h4 class="f2 b4" id="D-01">Medical Q</h4></div>
-                <div class="item1 shadow"><h4 class="f2 b4">실내</h4></div>
-                <div class="item1 shadow"><h4 class="f2 b4" id="D-02">오량독서토론부</h4></div>
-                <div class="item1 shadow"><h4 class="f2 b4" id="D-03">Goodwill</h4></div>
-                <div class="item1 shadow"><h4 class="f2 b4" id="D-04">TRADE MARK</h4></div>
-                <div class="item1 shadow"><h4 class="f2 b4">출입문</h4></div>
-                <div class="item1 shadow"><h4 class="f2 b4">실외</h4></div>
-                <div class="item1 shadow"><h4 class="f2 b4" id="D-05">생존의달인</h4></div>
-                <div class="item1 shadow"><h4 class="f2 b4" id="D-06">그곳이알고싶다</h4></div>
-                <div class="item1 shadow"><h4 class="f2 b4" id="D-07">CAPSULE</h4></div>
-                <div class="item1 shadow"><h4 class="f2 b4" id="D-08">한땀</h4></div>
-                <div class="item1 shadow"><h4 class="f2 b4" id="D-09">또래상담반</h4></div>
-                <div class="item1 shadow"><h4 class="f2 b4" id="D-10">肉體改造</h4></div>
-                <div class="item1 shadow"><h4 class="f2 b4" id="D-11">the eco's</h4></div>
-                <div class="item1 shadow"><h4 class="f2 b4" id="D-12">공간디자인</h4></div>
-                <div class="item1 shadow"><h4 class="f2 b4" id="D-00">Fusing Science</h4></div>
-
+              <div class="blur shadow half-box" id="Back">
+                <img width="40%" src='{% static "imgs/Back.svg" %}' alt=""><br>
+                <h3>부스보기</h3>
+              </div>
+    
             </div>
+
+            <div style="height: 100px;"></div>
         </div>
 
 
-        <div id="Map2">
-            <div class="map2-grid">
-                <div class="item2 shadow"><h4 class="f2 b4">운영본부</h4></div>
-                <div class="item2 shadow"><h4 class="f2 b4" id="A-01">D.H.B.A</h4></div>
-                <div class="item2 shadow"><h4 class="f2 b4" id="A-02">오량신문편집반</h4></div>
-                <div class="item2 shadow"><h4 class="f2 b4" id="A-03">아티펙스</h4></div>
-                <div class="item2 shadow"><h4 class="f2 b4" id="A-04">날샘</h4></div>
-                <div class="item2 shadow"><h4 class="f2 b4" id="A-05">The mining</h4></div>
-                <div class="item2 shadow"><h4 class="f2 b4" id="A-06">Scivill</h4></div>
-                <div class="item2 shadow"><h4 class="f2 b4" id="A-07">Mutation2</h4></div>
-                <div class="item2 shadow"><h4 class="f2 b4" id="A-08">DCN</h4></div>
-                <div class="item2 shadow"><h4 class="f2 b4" id="A-09">라이프니츠</h4></div>
-                <div class="item2 shadow"><h4 class="f2 b4" id="A-10">패스파인더</h4></div>
-                <div class="item2 shadow"><h4 class="f2 b4" id="C-01">세움</h4></div>
-                <div class="item2 shadow"><h4 class="f2 b4" id="C-02">라이프사이언스</h4></div>
-                <div class="item2 shadow"><h4 class="f2 b4" id="C-03">교집합</h4></div>
-                <div class="item2 shadow"><h4 class="f2 b4" id="C-04">신진사학</h4></div>
-                <div class="item2 shadow"><h4 class="f2 b4" id="C-05">The Wheels기계</h4></div>
-                <div class="item2 shadow"><h4 class="f2 b4" id="C-06">Mutation1</h4></div>
-                <div class="item2 shadow"><h4 class="f2 b4" id="C-07">PRIME</h4></div>
-                <div class="item2 shadow"><h4 class="f2 b4" id="C-08">문화진로탐방</h4></div>
-                <div class="item2 shadow"><h4 class="f2 b4" id="B-01">SSAM</h4></div>
-                <div class="item2 shadow"><h4 class="f2 b4" id="B-02">별사탕</h4></div>
-                <div class="item2 shadow"><h4 class="f2 b4" id="B-03">얼간이연구소</h4></div>
-                <div class="item2 shadow"><h4 class="f2 b4" id="B-04">법愛정신</h4></div>
-                <div class="item2 shadow"><h4 class="f2 b4" id="B-05">The Wheels항공</h4></div>
-                <div class="item2 shadow"><h4 class="f2 b4" id="B-06">ODA</h4></div>
-                <div class="item2 shadow"><h4 class="f2 b4" id="B-07">FINDER</h4></div>
-                <div class="item2 shadow"><h4 class="f2 b4" id="B-08">DOYL政源</h4></div>
-                <div class="item2 shadow"><h4 class="f2 b4" id="B-09">A.C.T</h4></div>
-                <div class="item2 shadow"><h4 class="f2 b4" id="B-10">CREATOR</h4></div>
-            </div>
-        </div>
 
 </body>
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src='{% static "js/script.js" %}'></script>
+<script src='{% static "js/script.js"%}'></script>
+<script src='{% static "js/qr-git.js"%}'></script>
 <script>
-//json
-list = {{ booth | safe }}
 
-
-function stat(i) {
-    if (i == 0) {
-        return 'green';
-    } else if (i == 1) {
-        return 'orange';
-    } else {
-        return 'red';
-    }
+function go() {
+    location.href = "Map.html";
 }
-
-for (var i = 0; i < list; i++) {
-    var stat_c = stat(int(list[i].busy));
-    var code = list[i].code;
-    $('#' + code).css('background-color', stat_c);
-}
-    
-    
+var str = "{{ user.code }}"
+$('#webpush-subscribe-button').click();
+var qrcode = new QRCode(document.getElementById("qrcode"), {
+    text: str,
+    width: 80,
+    height: 80,
+    colorDark : "#000000",
+    colorLight : "#ffffff",
+    correctLevel : QRCode.CorrectLevel.H
+});
 </script>
+
 </html>
