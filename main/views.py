@@ -68,7 +68,11 @@ def index(request):
         if not '_id' in request.session:
             request.session['_id'] = str(db['users'].find_one({'code': request.user.email})['_id'])
         rep = db['users'].find_one({'code': request.user.email})
-        return render(request, "Menu.html", {"user": rep})
+        booth = db['booth'].find({}).sort('busy', 1)
+        booth = booth[:10]
+        import random
+        random.shuffle(booth)
+        return render(request, "Menu.html", {"user": rep, "recommendBooth": booth[:3]})
 
 @login_required(login_url="/")
 def BoothInfo(request):
