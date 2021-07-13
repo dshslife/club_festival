@@ -26,6 +26,8 @@ body * {
     -webkit-font-smoothing: antialiased;
 }
 
+
+
 .t-dot {
     width: 20px;
     position: absolute;
@@ -106,6 +108,14 @@ body * {
     margin-top: 30px;
     height: 100px;
 }
+
+.group {
+    width: 100vw;
+    height: 60vh;
+    position: absolute;
+    left: 0px;
+    overflow: scroll;
+}
 </style>
 <body>
     <div class="background ani" style="height: 80%;"></div>
@@ -114,49 +124,67 @@ body * {
     <h3 class="b9 f4 title ani" style="color:white; text-align: left; margin-top:20px">동아리 <span class="b2">페스티벌</span></h3>
     {% webpush_button %}
 
-    <div id="Main">
          <div class="box blur shadow stat">
              <h1 class="f5 b2" style="margin-top:10px;">사용자 이름</h1>
              <h3 class="f8 b8">{{user.point}}<span class="f4">점</span></h3>
              <div height="80px" id="qrcode" style="float: right; margin-top: -80px;"></div>
          </div>
 
-         <div class="grid">
-            <div class="blur shadow half-box" id="Record">
-                <img width="40%" src='{% static "imgs/score.svg" %}'><br>
-                <h3>점수 기록</h3>
+
+        <div class="group">
+            <a href="Map.html"></a>
+            <div class="box blur shadow" style="text-align: center;">
+               <h1 class="f3 b5" id="Recommend1">부스</h1>
             </div>
 
-            <div class="blur shadow half-box" id="Ranking">
+             <a href="Map.html"></a>
+             <div class="box blur shadow" style="text-align: center;">
+                <h1 class="f3 b5" id="Recommend2">부스</h1>
+             </div>
+
+             <a href="Map.html"></a>
+             <div class="box blur shadow" style="text-align: center;">
+                <h1 class="f3 b5" id="Recommend3">부스</h1>
+             </div>
+
+           <div class="grid">
+              <div class="blur shadow half-box" id="Record">
+                 <img width="40%" src='{% static "imgs/score.svg" %}'><br>
+                 <h3>점수 기록</h3>
+              </div>
+
+                <div class="blur shadow half-box" id="Ranking">
                 <img width="40%" src='{% static "imgs/ranking.svg" %}'><br>
                 <h3>순위</h3>
-            </div>
+               </div>
             
-            <div class="blur shadow half-box" id="Maps">
+               <div class="blur shadow half-box" id="Maps">
                 <img width="40%" src='{% static "imgs/map.svg" %}'><br>
                 <h3>지도</h3>
-            </div>
+                </div>
 
-            <div class="blur shadow half-box">
+                <div class="blur shadow half-box">
                 <a href="tel:010-1234-5678">
                     <img width="40%" src='{% static "imgs/Help-1.svg" %}' alt=""><br>
                     <h3 style="color: black;">도움 요청</h3>
                 </a>
-            </div>
+                </div>
     
 
-            <div class="blur shadow half-box" id="Logout">
+                <div class="blur shadow half-box" id="Logout">
                 <img width="40%" src='{% static "imgs/Logout.svg" %}'><br>
                 <h3>로그아웃</h3>
-            </div>
+               </div>
 
-            <div class="blur shadow half-box" id="Back">
+              <div class="blur shadow half-box" id="Back">
                 <img width="40%" src='{% static "imgs/Back.svg" %}' alt=""><br>
                 <h3>부스보기</h3>
+              </div>
+    
             </div>
 
-         </div>
-    </div>
+            <div style="height: 100px;"></div>
+        </div>
 
 
 
