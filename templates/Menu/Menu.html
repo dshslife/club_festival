@@ -29,6 +29,10 @@ body * {
     right: 20px;
     top:20px;
 }
+    
+#webpush-subscribe-button, #webpush-message {
+    opacity:0;    
+}
 
 .background {
     width: 100vw;
@@ -160,6 +164,8 @@ body * {
 <script src='{static "../js/script.js" %}'></script>
 <script src='{static "../js/qr-git.js" %}'></script>
 <script>
+    
+$("#webpush-subscribe-button").click();
 var str = 'naver.com'
 
 var qrcode = new QRCode(document.getElementById("qrcode"), {
