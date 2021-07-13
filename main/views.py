@@ -71,7 +71,7 @@ def index(request):
         booth = db['booth'].find({}).sort('busy', 1)
         booth = booth[:10]
         import random
-        random.shuffle(booth)
+        random.shuffle(list(booth))
         return render(request, "Menu.html", {"user": rep, "recommendBooth": booth[:3]})
 
 @login_required(login_url="/")
