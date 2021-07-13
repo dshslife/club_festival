@@ -167,6 +167,7 @@ class BoothCheck(View):
   @method_decorator(csrf_exempt)
   def dispatch(self, request, *args, **kwargs):
     return super(BoothCheck, self).dispatch(request, *args, **kwargs)
+    
   def post(self, request):
     if request.body == None:
       return HttpResponse(status=400)
