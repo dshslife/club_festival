@@ -70,10 +70,8 @@ def index(request):
         rep = db['users'].find_one({'code': request.user.email})
         booth = list(db['booth'].find({}).sort('busy', 1))
         booth = booth[:10]
-        print(booth)
         import random
         random.shuffle(objectIdDecoder(booth))
-        print(booth)
         return render(request, "Menu.html", {"user": rep, "recommendBooth": booth[:3]})
 
 @login_required(login_url="/")
@@ -83,7 +81,6 @@ def BoothInfo(request):
     for i in booth:
         i['id'] = str(i['_id'])
         result_booth.append(i)
-    print(result_booth)
     return render(request, "Booth.html", {'booth': objectIdDecoder(result_booth)})
 
 @login_required(login_url="/")
@@ -95,7 +92,6 @@ def RankingView(request):
         result.append(user)
         if user['code'] == request.user.email:
             selfUser = user
-    print(result)
     return render(request, "Ranking.html", {'selfuser': selfUser, 'result': objectIdDecoder(result)[:15]})
 
 @login_required(login_url="/")
@@ -144,9 +140,6 @@ def HistoryView(request):
     }
   ]
   )
-
-  print(visited_booth)
-
   return render(request, "History.html", {"score": rep['point'], "visited_booth": objectIdDecoder(visited_booth)})
 
 class CategorySelect(View):
@@ -162,7 +155,6 @@ class CategorySelect(View):
       return HttpResponse(status=400)
     else:
       try:
-        print(request.POST)
         data = request.POST
         db['users'].update_one({'code': request.user.email}, {'$set': {'category': request.POST['category'] }})
         return HttpResponse(status=200)
@@ -181,7 +173,6 @@ class BoothCheck(View):
     else:
       try:
         data = json.loads(request.body)
-        print(data)
         if not 'code' in data and 'point' in data and not 'booth' in data:
           return JsonResponse(status=400, data={'status': 'NO_CODE_ERROR'})
         if 'booth' in data:
@@ -215,7 +206,6 @@ class WebPush(View):
       data = json.loads(request.body)
       User = get_user_model()
       users = User.objects.all()
-      print(data)
       payload = {"head": data['title'], "icon": "https://i.imgur.com/EqNRGOC.png", "url": "https://meetstartup.today", "body": data['message']}
       for user in users:
         send_user_notification(user=user ,payload=payload, ttl=1000)
@@ -242,7 +232,7 @@ class setBoothBusy(View):
     if not 'code' in data or not 'busy' in data:
       return HttpResponse(status=403)
     else:
-      print(list(db['booth'].find({'code' : ObjectId(data['code']) })))
+      # print(list(db['booth'].find({'code' : ObjectId(data['code']) })))
       db['booth'].update_one({'code': ObjectId(data['code'])}, {'$set': {'busy': data['busy']}})
 
       return HttpResponse(status=200)
