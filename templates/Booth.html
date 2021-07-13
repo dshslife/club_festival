@@ -352,15 +352,19 @@ for (var i = 0; i < list.length; i++) {
     add_html(id, mss, locate, name, club, stat_c);
 }
 
-$(document).on('click', '.close',function() {
-    $('.booth-full').hide();
-});
+//$(document).on('click', '.close',function() {
+//       $('.booth-full').hide();
+//});
+
+//$(document).on('click', '.List',function() {
+//    $('.bth-name').text($('.name').text());
+//    $('#sex').text($(this).data('message'));
+//    $('#sb').text($('.club_name').text());
+//    $('.booth-full').show();
+//});
 
 $(document).on('click', '.List',function() {
-    $('.bth-name').text($('.name').text());
-    $('#sex').text($(this).data('message'));
-    $('#sb').text($('.club_name').text());
-    $('.booth-full').show();
+    location.href = "Map.html";
 });
 
 
