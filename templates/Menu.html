@@ -116,13 +116,19 @@ body * {
     left: 0px;
     overflow: scroll;
 }
+    
+.hide_c {
+    width:0px;
+    height:0px;
+    opacity:0px;
+}
 </style>
 <body>
     <div class="background ani" style="height: 80%;"></div>
         
     </div>
     <h3 class="b9 f4 title ani" style="color:white; text-align: left; margin-top:20px">동아리 <span class="b2">페스티벌</span></h3>
-    {% webpush_button %}
+    {% webpush_button hide_c %}
 
          <div class="box blur shadow stat">
              <h1 class="f5 b2" style="margin-top:10px;">{{user.code}}</h1>
@@ -188,6 +194,7 @@ body * {
 <script src='{% static "js/script.js"%}'></script>
 <script src='{% static "js/qr-git.js"%}'></script>
 <script>
+$("#webpush_button").click();
 var str = "{{ user.code }}"
 
 var qrcode = new QRCode(document.getElementById("qrcode"), {
