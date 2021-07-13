@@ -188,7 +188,7 @@ function stat(i) {
 }
 
 for (var i = 0; i < list.length; i++) {
-    var stat_c = stat(int(list[i].busy));
+    var stat_c = stat(list[i].busy);
     var code = list[i].code;
     $('#' + code).css('background-color', stat_c);
 }
