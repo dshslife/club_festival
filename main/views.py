@@ -68,10 +68,12 @@ def index(request):
         if not '_id' in request.session:
             request.session['_id'] = str(db['users'].find_one({'code': request.user.email})['_id'])
         rep = db['users'].find_one({'code': request.user.email})
-        booth = db['booth'].find({}).sort('busy', 1)
+        booth = list(db['booth'].find({}).sort('busy', 1))
         booth = booth[:10]
+        print(booth)
         import random
-        random.shuffle(list(booth))
+        random.shuffle(objectIdDecoder(booth))
+        print(booth)
         return render(request, "Menu.html", {"user": rep, "recommendBooth": booth[:3]})
 
 @login_required(login_url="/")
@@ -94,7 +96,7 @@ def RankingView(request):
         if user['code'] == request.user.email:
             selfUser = user
     print(result)
-    return render(request, "Ranking.html", {'selfuser': selfUser, 'result': objectIdDecoder(result)})
+    return render(request, "Ranking.html", {'selfuser': selfUser, 'result': objectIdDecoder(result)[:15]})
 
 @login_required(login_url="/")
 def MapView(request):
