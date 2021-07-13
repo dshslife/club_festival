@@ -111,33 +111,36 @@ hr {
 
     <div class="box shadow blur his-box">
         <h1 class="f4 b8">내 순위</h1>
-        <h5 class="f4 b3" style="margin-left: 200px;">1등</h5>
+        <h5 class="f4 b3" style="margin-left: 200px;">{{selfuser.rank}}등</h5>
     </div><div style="height: 10px;"></div>
 
     <hr style="width: 80%; position: relative; left: 50%; margin-left: -40%; margin-bottom: 20px;">
 
         <div id="AddRanking">
-            <div class="box shadow blur his-box">
-                <img src='{% static "imgs/gold-medal.svg" %}' width="40px" style="margin-right: 10px; margin-top: -5px;">
-                <h5 class="f4 b3">{{rankingList[0]['code']}}</h5>
-            </div><div style="height: 10px;"></div>
+            
 
-
-            <div class="box shadow blur his-box">
-                <img src='{% static "imgs/medal.svg" %}' width="40px" style="margin-right: 10px; margin-top: -5px;">
-                <h5 class="f4 b3">{{rankingList[1]['code']}}</h5>
-            </div><div style="height: 10px;"></div>
-
-            <div class="box shadow blur his-box">
-                <img src='{% static "imgs/medal3.svg" %}' width="40px" style="margin-right: 10px; margin-top: -5px;">
-                <h5 class="f4 b3">{{rankingList[2]['code']}}</h5>
-            </div><div style="height: 10px;"></div>
-
-            {% for user in rankingList[3:] %}
+            {% for user in result %}
+                {% if user.rank == 1 %}
                 <div class="box shadow blur his-box">
-                    <h2 class="b9" style="width: 40px; text-align: center;">4.</h2>
-                    <h5 class="f4 b3">{{user['code']}}</h5>
+                    <img src='{% static "imgs/gold-medal.svg" %}' width="40px" style="margin-right: 10px; margin-top: -5px;">
+                    <h5 class="f4 b3">{{ user.code }}</h5>
                 </div><div style="height: 10px;"></div>
+                {% elif user.rank == 2 %}
+                <div class="box shadow blur his-box">
+                    <img src='{% static "imgs/medal.svg" %}' width="40px" style="margin-right: 10px; margin-top: -5px;">
+                    <h5 class="f4 b3">{{user.code}}</h5>
+                </div><div style="height: 10px;"></div>
+                {% elif user.rank == 3 %}
+                <div class="box shadow blur his-box">
+                    <img src='{% static "imgs/medal3.svg" %}' width="40px" style="margin-right: 10px; margin-top: -5px;">
+                    <h5 class="f4 b3">{{user.code}}</h5>
+                </div><div style="height: 10px;"></div>
+                {% else %}
+                <div class="box shadow blur his-box">
+                    <h2 class="b9" style="width: 40px; text-align: center;">{{user.rank}}.</h2>
+                    <h5 class="f4 b3">{{user.code}}</h5>
+                </div><div style="height: 10px;"></div>
+                {% endif %}
             {% endfor %}
 
         </div>

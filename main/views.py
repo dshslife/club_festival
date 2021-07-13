@@ -89,7 +89,8 @@ def RankingView(request):
         result.append(user)
         if user['code'] == request.user.email:
             selfUser = user
-    return render(request, "Ranking.html", {'selfuser': selfUser, 'rankingList': result})
+    print(result)
+    return render(request, "Ranking.html", {'selfuser': selfUser, 'result': objectIdDecoder(result)})
 
 @login_required(login_url="/")
 def MapView(request):
